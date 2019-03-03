@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from rango.forms import UserForm, UserProfileForm
+from carride.forms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -8,6 +8,7 @@ from django.contrib.auth import logout
 from datetime import datetime
 
 # Create your views here.
+<<<<<<< HEAD
 
 def home(request):
     context_dict ={}
@@ -72,4 +73,20 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
 
+from carride.models import Vehicle
+
+# each view returns HttpResponse object - takes string
+# as a parameter representing the content of the page 
+# to be sent to the client
+
+def show_car_details(request):
+	context_dict = {}
+
+	car = Vehicle.objects.order_by('-price')[0] # one dictionary
+
+	context_dict['chosen_car'] = car
+
+	response = render(request, 'carride/cardetails.html', context=context_dict)
+
+	return response
 

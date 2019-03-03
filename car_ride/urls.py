@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls import include
+from carride import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    url(r'^$', views.index, name='base'),
+    url(r'^carride/', include('carride.urls')),
     url(r'^admin/', admin.site.urls),
 ]

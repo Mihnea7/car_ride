@@ -1,0 +1,19 @@
+{% extends 'carride/base.html' %}
+{% load staticfiles %}
+
+{% block body_block %}
+	<style>
+		div #details {
+			text-align: center;
+		}
+	</style>
+	<div id="details">
+		<h3>Model: {{ chosen_car.model }}</h3>
+		<h3>Price: {{ chosen_car.price }}</h3>
+		<h3>Year: {{ chosen_car.year }}</h3>
+		<h3>New/old: {{ chosen_car.new }}</h3>
+		<h3>Username: {{ chosen_car.username }}</h3>
+		<h3>Phone number: {{ chosen_car.phoneNum }}</h3>
+		<h3>Additional Info: {{ chosen_car.additionalInfo }}</h3>
+	</div>
+{% endblock %}
