@@ -1,21 +1,42 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 
-<html>
+<html lang="en">
 	<head>
+		<link rel="stylesheet" type="text/css" href="{% static "style/base.css" %}"/>
 		<title>
 			Carride -
-			{% block title_block %} <!--specify custom page title-->
-				
+			{% block title_block %}	<!--standard Django template command-->
+				Trust. Quality. Price.
 			{% endblock %}
 		</title>
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 
 	<body>
-		<div>
-			{% block body_block %} <!--standard Django template command-->
-				Want to escape the reality? Get a car and drive away!
+		<div class="topnav">
+			<a href="#"><img src="{% static "images/logo.jpg" %}" alt="CarRide" /></a>
+			<span id="moto">WANT TO ESCAPE THE REALITY? GET A CAR AND DRIVE AWAY!</span>
+		</div>
+
+		<div class="menu_list">
+			<ul>
+				<li><a href="#">BUY</a></li>
+				<li><a href="#">RENT</a></li>
+				<li><a href="#">SELL/LEASE</a></li>
+				<li><a href="#">COMPARE</a></li>
+			</ul>
+		</div>
+
+		<div class="content">
+			{% block body_block %}
 			{% endblock %}
 		</div>
-	</body>
+		<hr />
 
+		<div class="footer">
+			<p text-decoration=underline><a href="#">About</a></p>
+		</div>
+	</body>
 </html>

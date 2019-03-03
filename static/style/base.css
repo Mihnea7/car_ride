@@ -1,0 +1,67 @@
+* {
+  font-family: Agency FB, Helvetica, sans-serif;
+}
+
+body {
+  font-family: Agency FB, Helvetica, sans-serif;
+  background-color: #F5F5F5;
+  border-left: 150px solid #999;
+  border-right: 150px solid #999;
+}
+
+#moto{
+  font-size: 15pt;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  top: 15px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #C4D1E3;
+  padding: 5px;
+}
+
+/* Style the topnav links */
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #DDD;
+}
+
+.menu_list {
+  background-color: #DAE8FC;
+  padding: 1px;
+  position: relative;
+}
+
+.menu_list ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+.menu_list ul li {
+  font-size: 15pt;
+  display: inline;
+  padding-left: 90px;
+  padding-right: 90px;
+  text-decoration: underline;
+}
+
+/* Style the content */
+.content {
+  background-color: #F5F5F5;
+  height: 500px; /* Should be removed. Only for demonstration */
+  overflow: hidden;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #C4D1E3;
+  font-size: 20pt;
+  text-align: center;
+}
