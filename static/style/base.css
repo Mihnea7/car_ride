@@ -19,6 +19,7 @@ body {
   top: 15px;
 }
 
+
 /* Style the top navigation bar */
 .topnav {
   overflow: hidden;
@@ -47,8 +48,8 @@ body {
 .menu_list ul li {
   font-size: 15pt;
   display: inline;
-  padding-left: 90px;
-  padding-right: 90px;
+  padding-left: 50px;
+  padding-right: 50px;
   text-decoration: underline;
 }
 
@@ -64,4 +65,9 @@ body {
   background-color: #C4D1E3;
   font-size: 20pt;
   text-align: center;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
