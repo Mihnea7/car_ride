@@ -66,8 +66,9 @@ def user_login(request):
         return render(request, 'carride/login.html', {})
 
 @login_required
-def restricted(request):
-    return render(request, 'carride/restricted.html',{})
+def MyAccount(request):
+    response = render(request, 'carride/myaccount.html',{})
+    return response
 
 @login_required
 def user_logout(request):
