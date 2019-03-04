@@ -8,7 +8,6 @@ from django.contrib.auth import logout
 from datetime import datetime
 
 # Create your views here.
-<<<<<<< HEAD
 
 def home(request):
     context_dict ={}

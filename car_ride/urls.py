@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^$', views.index, name='base'),
+    url(r'^$', views.home, name='base'),
     url(r'^carride/', include('carride.urls')),
     url(r'^admin/', admin.site.urls),
 ]

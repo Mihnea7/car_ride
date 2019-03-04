@@ -18,6 +18,13 @@
 		<div class="topnav">
 			<a href="#"><img src="{% static "images/logo.jpg" %}" alt="CarRide" /></a>
 			<span id="moto">WANT TO ESCAPE THE REALITY? GET A CAR AND DRIVE AWAY!</span>
+			<ul>
+			{% if user.is_authenticated %}
+				<p><a href="{% url 'logout' %}">Logout</a></p>
+			{% endif %}
+				<p><a href="{% url 'login' %}">Sign In</a></p>
+				<p><a href="{% url 'register' %}">Sign Up</a></p>
+			</ul>
 		</div>
 
 		<div class="menu_list">
@@ -36,7 +43,7 @@
 		<hr />
 
 		<div class="footer">
-			<p text-decoration=underline><a href="#">About</a></p>
+			<p><a href="{% url 'about' %}">About</a></p>
 		</div>
 	</body>
 </html>
