@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 
-<html lang="en">
+<html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="{% static "style/base.css" %}"/>
 		<title>
 			Carride -
-			{% block title_block %}	<!--standard Django template command-->
+			{% block title_block %}
 				Trust. Quality. Price.
 			{% endblock %}
 		</title>
@@ -16,14 +16,15 @@
 
 	<body>
 		<div class="topnav">
-			<a href="#"><img src="{% static "images/logo.jpg" %}" alt="CarRide" /></a>
+			<span><a href="#"><img src="{% static "images/logo.jpg" %}" alt="CarRide" /></a></span>
 			<span id="moto">WANT TO ESCAPE THE REALITY? GET A CAR AND DRIVE AWAY!</span>
-			<ul>
-			{% if user.is_authenticated %}
-				<p><a href="{% url 'logout' %}">Logout</a></p>
-			{% endif %}
-				<p><a href="{% url 'login' %}">Sign In</a></p>
-				<p><a href="{% url 'register' %}">Sign Up</a></p>
+			<ul id="authentication">
+				{% if user.is_authenticated %}
+					<li><a href="{% url 'logout' %}">Logout</a></li>
+				{% else %}
+					<li><a href="{% url 'login' %}">Sign In</a></li>
+					<li><a href="{% url 'register' %}">Sign Up</a></li>
+				{% endif %}
 			</ul>
 		</div>
 

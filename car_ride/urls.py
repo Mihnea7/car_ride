@@ -24,4 +24,4 @@ urlpatterns = [
     url(r'^$', views.home, name='base'),
     url(r'^carride/', include('carride.urls')),
     url(r'^admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

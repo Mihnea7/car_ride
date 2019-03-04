@@ -20,6 +20,12 @@ class Vehicle(models.Model):
 	username = models.CharField(max_length = 20, blank=True)
 	phoneNum = models.CharField(max_length = 13, blank=True)
 	additionalInfo = models.CharField(max_length = 1024)
+	picture = models.ImageField(upload_to='car')
+	slug = models.SlugField(unique=True, blank=True, null=True)
+
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.model)
+		super(Vehicle, self).save(*args, **kwargs)
 
 	def __str__(self):
 	# generate string representation of the class

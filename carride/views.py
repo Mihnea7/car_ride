@@ -7,12 +7,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
 from django.core.urlresolvers import reverse
+from carride.models import Vehicle
 
 # Create your views here.
 
 def home(request):
     context_dict ={}
-    response = render(request, 'carride/home.html', context=context_dict)
+    response = render(request, 'carride/base.html', context=context_dict)
     return response
 
 def about(request):
@@ -73,20 +74,18 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
 
-from carride.models import Vehicle
-
 # each view returns HttpResponse object - takes string
 # as a parameter representing the content of the page 
 # to be sent to the client
 
-def show_car_details(request):
-	context_dict = {}
+def show_car_details(request, model_slug):
+    context_dict = {}
+    
+    try:
+        car = Vehicle.objects.get(slug=model_slug)
+        context_dict['chosen_car'] = car
+    except Vehicle.DoesNotExist:
+        context_dict['chosen_car'] = None
 
-	car = Vehicle.objects.order_by('-price')[0] # one dictionary
-
-	context_dict['chosen_car'] = car
-
-	response = render(request, 'carride/cardetails.html', context=context_dict)
-
-	return response
-
+    response = render(request, 'carride/cardetails.html', context=context_dict)
+    return response

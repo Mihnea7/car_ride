@@ -9,23 +9,31 @@ body {
   border-right: 150px solid #999;
 }
 
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #C4D1E3;
+  padding: 5px;
+  position: relative;
+  height: 80px;
+}
+
 #moto{
   font-size: 15pt;
   width: 200px;
-  height: 50px;
   text-align: center;
   padding: 10px;
   position: absolute;
   top: 15px;
 }
 
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  background-color: #C4D1E3;
-  padding: 5px;
+#authentication {
+  font-size: 15pt;
+  position: absolute;
+  top: 5px;
+  right: 50px;
+  list-style-type: none;
 }
-
 /* Style the topnav links */
 
 /* Change color on hover */
@@ -55,7 +63,7 @@ body {
 /* Style the content */
 .content {
   background-color: #F5F5F5;
-  height: 500px; /* Should be removed. Only for demonstration */
+  height: 1000px; /* Should be removed. Only for demonstration */
   overflow: hidden;
 }
 

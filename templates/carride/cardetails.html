@@ -15,5 +15,6 @@
 		<h3>Username: {{ chosen_car.username }}</h3>
 		<h3>Phone number: {{ chosen_car.phoneNum }}</h3>
 		<h3>Additional Info: {{ chosen_car.additionalInfo }}</h3>
+		<img src="{{ MEDIA_URL }}{{chosen_car.picture}}" alt="pls show"/>
 	</div>
 {% endblock %}
