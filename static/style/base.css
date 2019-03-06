@@ -65,6 +65,7 @@ body {
   background-color: #F5F5F5;
   height: 1000px; /* Should be removed. Only for demonstration */
   overflow: hidden;
+  position: relative;
 }
 
 /* Style the footer */
@@ -73,6 +74,7 @@ body {
   font-size: 20pt;
   text-align: center;
 }
+
 .center {
   display: block;
   margin-left: auto;

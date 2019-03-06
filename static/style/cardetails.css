@@ -1,0 +1,11 @@
+#spec h3{
+  position: relative;
+  left: 80px;
+  top: 10px;
+  width: 30%;
+  border: solid #999;
+}
+
+#carimage {
+  text-align: center;
+}
