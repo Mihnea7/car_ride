@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from carride.forms import UserForm, UserProfileForm
+from carride.forms import UserForm, UserProfileForm, ReviewForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
 from django.core.urlresolvers import reverse
-from carride.models import Vehicle
+from carride.models import Vehicle, Review
 
 # Create your views here.
 
@@ -44,7 +44,7 @@ def register(request):
         profile_form = UserProfileForm()
     return render(request,
                 'carride/register.html',
-                {'user_form': user_form,
+               {'user_form': user_form,
                 'profile_form': profile_form,
                 'registered': registered})      
 
@@ -87,6 +87,28 @@ def show_car_details(request, model_slug):
         context_dict['chosen_car'] = car
     except Vehicle.DoesNotExist:
         context_dict['chosen_car'] = None
+
+    form = ReviewForm()
+
+    if request.method == 'POST':
+        # starting point???
+        form = ReviewForm(request.POST)
+
+        if form.is_valid():
+            comment = form.save(commit=True)
+            
+            comment.save()
+
+            context_dict['review'] = comment.review
+            context_dict['rating'] = comment.rating
+            #return show_car_details(request, model_slug)
+        else:
+            print(form.errors)
+
+    context_dict['form'] = form
+
+    reviews_list = Review.objects.order_by('-rating')[:2]
+    context_dict['all_reviews'] = reviews_list
 
     response = render(request, 'carride/cardetails.html', context=context_dict)
     return response

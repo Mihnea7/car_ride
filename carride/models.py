@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from django.utils import timezone
 
 class UserProfile(models.Model):
 # This line is required. Links UserProfile to a User model instance.
@@ -32,4 +33,11 @@ class Vehicle(models.Model):
 	# generate string representation of the class
 		return self.model
 
+class Review(models.Model):
+	# post = models.ForeignKey(Vehicle, on_delete=models.CASCADE, default="")
+	review = models.CharField(max_length = 1024)
+	rating = models.DecimalField(decimal_places = 1, max_digits = 5, null=True)
+	created_date = models.DateTimeField(default=timezone.now)
 
+	def __str__(self):
+		return self.review

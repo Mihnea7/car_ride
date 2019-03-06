@@ -9,7 +9,9 @@
 	<div id="carimage">
 		<img src="{{ MEDIA_URL }}{{chosen_car.picture}}" alt="pls show" height="300"/>
 	</div>
-	<div>
+	
+	<div id='block'>
+
 		<span id="spec">
 			<h3>Model: {{ chosen_car.model }}</h3>
 			<h3>Price: {{ chosen_car.price }}</h3>
@@ -19,5 +21,36 @@
 			<h3>Phone number: {{ chosen_car.phoneNum }}</h3>
 			<h3>Additional Info: {{ chosen_car.additionalInfo }}</h3>
 		</span>
+		
+		
+		<span id="review">
+			<h4>Please enter your review</h4>
+			<form id="review_form" method="post" action="/carride/cardetails/{{chosen_car.slug}}/">
+				{% csrf_token %}
+
+				{% for field in form.visible_fields %}
+					{{ field.errors }}
+					{{ field.help_text }}
+					{% if field.name == 'review' %}
+						<label>Review:</label>
+						<textarea name="review" placeholder="Review"></textarea>
+					{% else %}
+						<label>Rating:</label>
+						<input name="rating" placeholder="Rating" type="number">
+					{% endif %}
+				{% endfor %}
+				
+				<input type="submit" name="submit" value="Add review" />
+			</form>
+			<h1>Previous reviews</h1>
+			{{ review }}
+			{{ rating }}
+			{% if all_reviews %}
+				{% for comment in all_reviews %}
+					{{ comment }}
+				{% endfor %}
+			{% endif %}
+		</span>
+
 	</div>
 {% endblock %}

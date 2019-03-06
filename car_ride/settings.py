@@ -129,3 +129,5 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 MEDIA_ROOT = MEDIA_DIR
 # what url to serve the media files from
 MEDIA_URL = '/media/'
+
+APPEND_SLASH=False
