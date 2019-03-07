@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^myaccount/', views.MyAccount, name='myaccount'),
     url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^cardetails/(?P<model_slug>[\w\-]+)/$', views.show_car_details, name='cardetails'),
+    url(r'^sell/$', views.sell, name='sell'),
     ]
 
 

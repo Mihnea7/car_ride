@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from carride.forms import UserForm, UserProfileForm, ReviewForm
+from carride.forms import UserForm, UserProfileForm, ReviewForm, VehicleForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -19,6 +19,11 @@ def home(request):
 def about(request):
     context_dict={}
     response = render(request, 'carride/about.html', context=context_dict)
+    return response
+
+def sell(request):
+    context_dict={}
+    response = render(request, 'carride/sell.html', context=context_dict)
     return response
 
 def register(request):
@@ -112,3 +117,15 @@ def show_car_details(request, model_slug):
 
     response = render(request, 'carride/cardetails.html', context=context_dict)
     return response
+
+def add_vehicle(request):
+    form = VehicleForm()
+    if request.method == 'POST':
+        form = VehicleForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+        else:
+            print(form.errors)
+
+    return render(request, 'carride/sell.html', {'form': form})
+    

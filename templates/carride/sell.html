@@ -1,0 +1,23 @@
+{% extends 'carride/base.html' %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+<span id="sell">
+			<h4>Please enter your Car Details</h4>
+			<form id="vehicle_form" method="post" action="/carride/sell/">
+				{% csrf_token %}
+
+				{% for field in form.visible_fields %}
+					{{ field.errors }}
+					{{ field.help_text }}
+					{{ field }}
+					
+				{% endfor %}
+				
+				<input type="submit" name="submit" value="Upload Car" />
+			</form>
+			
+		</span>
+		
+{% endblock %}
