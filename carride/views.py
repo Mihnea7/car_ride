@@ -126,7 +126,8 @@ def sell(request):
     return response
 
 def buy(request):
-    car_list=Vehicle.objects.order_by('year')[:10]
+    #car_list=Vehicle.objects.order_by('year')[:10]
+    car_list = Vehicle.objects.filter(forSale=True)
     context_dict ={'car_list':car_list}
     response = render(request, 'carride/buy.html', context=context_dict)
     return response

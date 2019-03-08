@@ -7,7 +7,9 @@
 	<div>
 	{% for car in car_list %}
 	<div>
-	<a href="/carride/{{ car.name }}> {{ car.name }} </a>
+	<a href="/carride/cardetails/{{car.slug}}/"><img src="{{ MEDIA_URL }}{{ car.picture }}" alt="Micc" height="200"/></a>
+	<h3>{{ car.model }}</h3>
+	<p> {{ car.price }}$ from {{ car.year }} </p>
 	</div>
 	{% endfor %}
 	{% else %}
