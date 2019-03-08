@@ -122,5 +122,21 @@ def sell(request):
         else:
             print(form.errors)
 
-    return render(request, 'carride/sell.html', {'form': form})
-    
+    response=render(request, 'carride/sell.html', {'form': form})
+    return response
+
+def buy(request):
+    car_list=Vehicle.objects.order_by('year')[:10]
+    context_dict ={'car_list':car_list}
+    response = render(request, 'carride/buy.html', context=context_dict)
+    return response
+
+def rent(request):
+    context_dict ={}
+    response = render(request, 'carride/rent.html', context=context_dict)
+    return response
+
+def compare(request):
+    context_dict ={}
+    response = render(request, 'carride/compare.html', context=context_dict)
+    return response

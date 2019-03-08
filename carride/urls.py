@@ -10,6 +10,9 @@ urlpatterns = [
     url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^cardetails/(?P<model_slug>[\w\-]+)/', views.show_car_details, name='cardetails'),
     url(r'^sell/$', views.sell, name='sell'),
+    url(r'^buy/$', views.buy, name='buy'),
+    url(r'^rent/$', views.rent, name='rent'),
+    url(r'^compare/$', views.compare, name='compare'),
     ]
 
 

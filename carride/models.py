@@ -24,6 +24,7 @@ class Vehicle(models.Model):
 	additionalInfo = models.CharField(max_length = 1024)
 	picture = models.ImageField(upload_to='car')
 	slug = models.SlugField(unique=True, blank=True, null=True)
+	forSale= models.BooleanField(default=True)
 
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.model)
@@ -34,7 +35,7 @@ class Vehicle(models.Model):
 		return self.model
 
 class Review(models.Model):
-	post = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+	#post = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 	review = models.CharField(max_length = 1024)
 	rating = models.DecimalField(decimal_places = 1, max_digits = 5, null=True)
 	created_date = models.DateTimeField(default=timezone.now)

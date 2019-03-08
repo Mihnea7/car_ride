@@ -1,0 +1,17 @@
+{% extends 'carride/base.html' %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+	{% if car_list %}
+	<div>
+	{% for car in car_list %}
+	<div>
+	<a href="/carride/{{ car.name }}> {{ car.name }} </a>
+	</div>
+	{% endfor %}
+	{% else %}
+	<p> No cars available for sale. </p>
+
+	{% endif %}
+{% endblock %}

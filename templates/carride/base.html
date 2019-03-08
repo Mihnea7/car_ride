@@ -16,7 +16,7 @@
 
 	<body>
 		<div class="topnav">
-			<span><a href="#"><img src="{% static "images/logo.jpg" %}" alt="CarRide" /></a></span>
+			<span><a href="{% url 'home' %}"><img src="{% static "images/logo.jpg" %}" alt="CarRide" /></a></span>
 			<span id="moto">WANT TO ESCAPE THE REALITY? GET A CAR AND DRIVE AWAY!</span>
 			<ul id="authentication">
 				{% if user.is_authenticated %}
@@ -30,10 +30,10 @@
 
 		<div class="menu_list">
 			<ul>
-				<li><a href="{% url 'buy' %">BUY</a></li>
-				<li><a href="{% url 'rent' %">RENT</a></li>
-				<li><a href="{% url 'sell' %">SELL/LEASE</a></li>
-				<li><a href="{% url 'compare' %">COMPARE</a></li>
+				<li><a href="{% url 'buy' %}">BUY</a></li>
+				<li><a href="{% url 'rent' %}">RENT</a></li>
+				<li><a href="{% url 'sell' %}">SELL/LEASE</a></li>
+				<li><a href="{% url 'compare' %}">COMPARE</a></li>
 			</ul>
 		</div>
 
