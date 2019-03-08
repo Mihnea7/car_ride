@@ -16,7 +16,7 @@ class UserProfile(models.Model):
 
 class Vehicle(models.Model):
 	model = models.CharField(max_length = 256, unique=True)
-	price = models.DecimalField(decimal_places = 1, max_digits = 10, max_length = 10, null=True)
+	price = models.DecimalField(decimal_places = 1, max_digits = 10, null=True)
 	year = models.IntegerField(null=True)
 	new = models.BooleanField(default=True)
 	username = models.CharField(max_length = 20, blank=True)
@@ -34,7 +34,7 @@ class Vehicle(models.Model):
 		return self.model
 
 class Review(models.Model):
-	# post = models.ForeignKey(Vehicle, on_delete=models.CASCADE, default="")
+	post = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 	review = models.CharField(max_length = 1024)
 	rating = models.DecimalField(decimal_places = 1, max_digits = 5, null=True)
 	created_date = models.DateTimeField(default=timezone.now)

@@ -24,14 +24,16 @@ class ReviewForm(forms.ModelForm):
 
 class VehicleForm(forms.ModelForm):
     model = forms.CharField(max_length = 256,
-                            help_text='Please enter the Car model.')
-    price = forms.IntegerField(help_text='Please enter the Car Price.')
+                            help_text='Please enter the car model')
+    price = forms.DecimalField(decimal_places = 1, max_digits = 10, 
+    	                       help_text='Please enter the price')
     year = forms.IntegerField(help_text='Please enter the Car year')
-    new = forms.ChoiceField(help_text="Is the Car New?")
+    new = forms.BooleanField(help_text='Is the car New?')
     phoneNum = forms.CharField(max_length = 13)
     additionalInfo = forms.CharField(max_length = 1024)
+    picture = forms.ImageField()
 
     class Meta:
         model = Vehicle
         fields = ('model', 'price', 'year', 'new', 'phoneNum',
-                  'additionalInfo')
+                  'additionalInfo', 'picture')

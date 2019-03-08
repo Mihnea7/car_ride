@@ -21,11 +21,6 @@ def about(request):
     response = render(request, 'carride/about.html', context=context_dict)
     return response
 
-def sell(request):
-    context_dict={}
-    response = render(request, 'carride/sell.html', context=context_dict)
-    return response
-
 def register(request):
     registered = False
     if request.method == 'POST':
@@ -118,7 +113,7 @@ def show_car_details(request, model_slug):
     response = render(request, 'carride/cardetails.html', context=context_dict)
     return response
 
-def add_vehicle(request):
+def sell(request):
     form = VehicleForm()
     if request.method == 'POST':
         form = VehicleForm(request.POST)
