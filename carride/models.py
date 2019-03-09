@@ -16,6 +16,7 @@ class UserProfile(models.Model):
 
 class Vehicle(models.Model):
 	model = models.CharField(max_length = 256, unique=True)
+	make = models.CharField(max_length = 256, null=True)
 	price = models.DecimalField(decimal_places = 1, max_digits = 10, null=True)
 	year = models.IntegerField(null=True)
 	new = models.BooleanField(default=True)

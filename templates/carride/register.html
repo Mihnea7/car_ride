@@ -6,12 +6,12 @@
 {% endblock %}
 
 {% block body_block %}
-	<h1>Register for CarRide</h1>
+	<h1  style="text-align:center;">Register for CarRide</h1>
 	{% if registered %}
-		<strong>thank you for registering!</strong>
+		<strong  style="text-align:center;">thank you for registering!</strong>
 		<a href="{% url 'home' %}">Return to the homepage.</a><br />
 	{% else %}
-		<strong>register here!</strong><br />
+		<h2  style="text-align:center;"><strong>register here!</strong></h2><br />
 		<form id="user_form" method="post" action="{% url 'register' %}"
 			enctype="multipart/form-data">
 
