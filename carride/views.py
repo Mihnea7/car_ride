@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from carride.forms import UserForm, UserProfileForm, ReviewForm, VehicleForm
+from carride.forms import UserForm, UserProfileForm, ReviewForm, VehicleForm, rateForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -133,7 +133,8 @@ def buy(request):
     return response
 
 def rent(request):
-    context_dict ={}
+    car_list = Vehicle.objects.filter(forSale=False)
+    context_dict ={'car_list':car_list}
     response = render(request, 'carride/rent.html', context=context_dict)
     return response
 

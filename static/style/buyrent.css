@@ -1,0 +1,45 @@
+* {
+  font-family: Agency FB, Helvetica, sans-serif;
+}
+
+.postbox{
+  width: 100px;
+  padding: 10px;
+  margin: 10px;
+  height: 250px;
+}
+
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border-style: none;
+  border-width: 10px;
+  height: 10px;
+  background-color: #659DBD;
+
+}
+
+.desc{
+  width: 250px;
+  border: 10px solid #659DBD;
+  padding: 10px;
+  margin: auto;
+  position: relative;
+  left: 500px;
+  bottom: 200px;
+}
+
+p{
+ font-size: 20px;
+}
+
+.findmore {
+  width: 80px;
+  border: 10px solid #659DBD;
+  padding: 10px;
+  margin: auto;
+  position: relative;
+  left: 669px;
+  bottom: 180px;
+}

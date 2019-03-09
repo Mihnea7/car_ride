@@ -2,5 +2,25 @@
 {% load staticfiles %}
 
 {% block body_block %}
-
+<hr>
+		<link rel="stylesheet" type="text/css" href="{% static "style/buyrent.css" %}"/>
+	{% if car_list %}
+	<div>
+	{% for car in car_list %}
+	<div class='postbox'>
+	
+	<a href="/carride/cardetails/{{car.slug}}/"><img src="{{ MEDIA_URL }}{{ car.picture }}" alt="Micc" height="200"/></a>
+	<div class='desc'>
+	<p> <b>Model:</b> {{ car.model }} <br> <b>Year:</b> {{ car.year }} <br> <b>Price:</b> £ {{ car.price }} 
+	</p>
+	</div>
+	<a href="/carride/cardetails/{{car.slug}}/"><div class="findmore"> 
+	FIND OUT MORE 
+	</div></a>
+	</div>
+	<hr>
+	{% endfor %}
+	{% else %}
+	<p> No cars available for rent. </p>
+	{% endif %}
 {% endblock %}

@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from carride.models import UserProfile, Review, Vehicle
 
+INTEGER_CHOICES= [tuple([x,x]) for x in range(0,10)]
+
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
 
@@ -21,6 +23,10 @@ class ReviewForm(forms.ModelForm):
 	class Meta:
 		model = Review
 		fields = ('review', 'rating')
+
+class rateForm(forms.ModelForm):
+    widget=forms.Select(choices=INTEGER_CHOICES)
+		
 
 class VehicleForm(forms.ModelForm):
     model = forms.CharField(max_length = 256,
