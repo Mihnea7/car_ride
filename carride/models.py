@@ -15,8 +15,9 @@ class UserProfile(models.Model):
         return self.user.username
 
 class Vehicle(models.Model):
+	slug = models.SlugField(unique=True)
 	model = models.CharField(max_length = 256, unique=True)
-	make = models.CharField(max_length = 256, null=True)
+	make = models.CharField(max_length = 256)
 	price = models.DecimalField(decimal_places = 1, max_digits = 10, null=True)
 	year = models.IntegerField(null=True)
 	new = models.BooleanField(default=True)
@@ -24,11 +25,11 @@ class Vehicle(models.Model):
 	phoneNum = models.CharField(max_length = 13, blank=True)
 	additionalInfo = models.CharField(max_length = 1024)
 	picture = models.ImageField(upload_to='car')
-	slug = models.SlugField(unique=True, blank=True, null=True)
 	forSale= models.BooleanField(default=True)
 
 	def save(self, *args, **kwargs):
-		self.slug = slugify(self.model)
+		to_slugify = str(self.make) + ' ' + str(self.model)
+		self.slug = slugify(to_slugify)
 		super(Vehicle, self).save(*args, **kwargs)
 
 	def __str__(self):
@@ -36,10 +37,11 @@ class Vehicle(models.Model):
 		return self.model
 
 class Review(models.Model):
-	#post = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+	post = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 	review = models.CharField(max_length = 1024)
 	rating = models.DecimalField(decimal_places = 1, max_digits = 5, null=True)
 	created_date = models.DateTimeField(default=timezone.now)
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return self.review

@@ -7,6 +7,7 @@ body {
   background-color: #F5F5F5;
   border-left: 150px solid #999;
   border-right: 150px solid #999;
+  overflow: hidden;
 }
 
 /* Style the top navigation bar */
@@ -73,6 +74,7 @@ body {
   background-color: #C4D1E3;
   font-size: 20pt;
   text-align: center;
+  clear: both;
 }
 
 .center {

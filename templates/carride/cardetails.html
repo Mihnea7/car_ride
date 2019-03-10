@@ -39,17 +39,20 @@
 						<input name="rating" placeholder="Rating" type="number">
 					{% endif %}
 				{% endfor %}
-				
-				<input type="submit" name="submit" value="Add review" />
+				{% if user.is_authenticated %}
+					<input type="submit" name="submit" value="Add review" />
+				{% else %}
+					<h3>You have to be authenticated to leave a review</h3>
+				{% endif %}
 			</form>
-			<h1>Previous reviews</h1>
-			{{ review }}
-			{{ rating }}
-			{% if all_reviews %}
-				{% for comment in all_reviews %}
-					{{ comment }}
-				{% endfor %}
-			{% endif %}
+			<h3>Previous reviews:</h3>
+			<span id="all_reviews">
+				{% if all_reviews %}
+					{% for comment in all_reviews %}
+						<h4>{{ comment.user }}: {{ comment.review }}</h4>
+					{% endfor %}
+				{% endif %}
+			</span>
 		</span>
 
 	</div>

@@ -17,7 +17,7 @@ class UserProfileForm(forms.ModelForm):
         fields = ('website', 'picture')
 
 class ReviewForm(forms.ModelForm):
-	review = forms.CharField(max_length = 1024, help_text="Please enter your review")
+	review = forms.CharField(max_length = 1024)
 	rating = forms.DecimalField(decimal_places = 1, max_digits = 5)
 
 	class Meta:

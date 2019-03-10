@@ -95,19 +95,24 @@ def show_car_details(request, model_slug):
         form = ReviewForm(request.POST)
 
         if form.is_valid():
-            comment = form.save(commit=True)
-            
+            comment = form.save(commit=False)
+            comment.post = car
+
+            current_user = request.user
+            comment.user = current_user
+
             comment.save()
 
             context_dict['review'] = comment.review
             context_dict['rating'] = comment.rating
+            context_dict['user'] = comment.user.username
             #return show_car_details(request, model_slug)
         else:
             print(form.errors)
 
     context_dict['form'] = form
 
-    reviews_list = Review.objects.order_by('-rating')[:2]
+    reviews_list = Review.objects.filter(post=car).order_by('-created_date')[:5]
     context_dict['all_reviews'] = reviews_list
 
     response = render(request, 'carride/cardetails.html', context=context_dict)
