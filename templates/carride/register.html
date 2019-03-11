@@ -6,23 +6,28 @@
 {% endblock %}
 
 {% block body_block %}
-	<h1  style="text-align:center;">Register for CarRide</h1>
-	{% if registered %}
-		<strong  style="text-align:center;">thank you for registering!</strong>
-		<a href="{% url 'home' %}">Return to the homepage.</a><br />
-	{% else %}
-		<h2  style="text-align:center;"><strong>register here!</strong></h2><br />
-		<form id="user_form" method="post" action="{% url 'register' %}"
-			enctype="multipart/form-data">
 
-		{% csrf_token %}
+<link rel="stylesheet" type="text/css" href="{% static "style/register.css" %}"/>
 
-		<!-- Display each form -->
-		{{ user_form.as_p }}
-		{{ profile_form.as_p }}
 
-		<!-- Provide a button to click to submit the form. -->
-		<input type="submit" name="submit" value="Register" />
-	</form>
+	<div class='reg' style="text-align:center;">
+		<h1><u>Register for CarRide</u></h1><br><br>
+		{% if registered %}
+			<strong  style="text-align:center;">Thank you for registering!</strong>
+			<a href="{% url 'login' %}">Go to Login</a><br />
+		{% else %}
+			<form id="user_form" method="post" action="{% url 'register' %}"
+				enctype="multipart/form-data">
+
+			{% csrf_token %}
+
+			<!-- Display each form -->
+			{{ user_form.as_p }}
+			{{ profile_form.as_p }}
+
+			<!-- Provide a button to click to submit the form. -->
+			<input type="submit" name="submit" value="Register" />
+			</form>
 	{% endif %}
+	</div>
 {% endblock %}

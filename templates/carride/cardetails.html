@@ -23,7 +23,7 @@
 		</span>
 		
 		
-		<span id="review">
+		<div class="review">
 			<h4>Please enter your review</h4>
 			<form id="review_form" method="post" action="/carride/cardetails/{{chosen_car.slug}}/">
 				{% csrf_token %}
@@ -53,7 +53,7 @@
 					{% endfor %}
 				{% endif %}
 			</span>
-		</span>
+		</div>
 
 	</div>
 {% endblock %}

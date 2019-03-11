@@ -16,15 +16,13 @@
 
 body{
   font-family:'Ubuntu',sans-serif;
-  overflow: scroll;
-  height: 1000px;
 }
 
 #block{
   
 }
-  
-#review{
+
+.review{
   position: absolute;
   right: 80px;
   top: 350px;

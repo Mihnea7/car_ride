@@ -38,7 +38,7 @@ class VehicleForm(forms.ModelForm):
     picture = forms.ImageField(help_text='Add Picture of Car',required=False)
     additionalInfo = forms.CharField(help_text='Additional information',
                                      max_length = 1024)
-    forSale=forms.BooleanField(help_text='Ready to Sell/Lease')
+    forSale=forms.BooleanField(help_text='Tick if not for Lease')
     slug=forms.CharField(widget=forms.HiddenInput(), required=False)
 
     

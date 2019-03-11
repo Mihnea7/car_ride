@@ -3,21 +3,23 @@
 
 {% block body_block %}
 
-<span id="sell">
-			<h4>Please enter your Car Details</h4>
+<link rel="stylesheet" type="text/css" href="{% static "style/sell.css" %}"/>
+
+<div class='reg' id="sell" style="text-align:center;">
+			<h2>Please enter your Car Details</h2>
 			<form id="vehicle_form" method="post" action="{% url 'sell' %}" enctype="multipart/form-data">
 				{% csrf_token %}
 
-				{% for field in form.visible_fields %}
+				{% for field in form.visible_fields %}<br><br>
 					{{ field.errors }}
 					{{ field.help_text }}
 					{{ field }}
 					
 				{% endfor %}
-				
+				<br><br>
 				<input type="submit" name="submit" value="Upload Car" />
 			</form>
 			
-		</span>
+		</div>
 		
 {% endblock %}

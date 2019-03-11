@@ -4,7 +4,11 @@
 	Login
 {% endblock %}
 {% block body_block %}
-<h1>Login to CarRide</h1>
+
+<link rel="stylesheet" type="text/css" href="{% static "style/login.css" %}"/>
+
+<div class='reg' style="text-align:center;">
+<h1><u>Login to CarRide</u></h1>
 <form id="login_form" method="post" action="{% url 'login' %}">
 	{% csrf_token %}
 	Username: <input type="text" name="username" value="" size="50" />
@@ -13,4 +17,5 @@
 	<br><br>
 	<input type="submit" value="submit" />
 </form>
+</div>
 {% endblock %}

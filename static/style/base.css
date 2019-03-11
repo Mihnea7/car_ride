@@ -1,12 +1,13 @@
 * {
-  font-family: Agency FB, Helvetica, sans-serif;
+  font-family: Fabriga Regular, Helvetica, sans-serif;
 }
 
 body {
   font-family: Agency FB, Helvetica, sans-serif;
-  background-color: #F5F5F5;
+  background-image: url("BGimage.jpg");
   border-left: 150px solid #999;
   border-right: 150px solid #999;
+  border-image: url("BGimage.jpg");
   overflow: scroll;
 }
 
@@ -16,12 +17,12 @@ body {
   background-color: #C4D1E3;
   padding: 5px;
   position: relative;
-  height: 80px;
+  height: 100px;
 }
 
 #moto{
-  font-size: 15pt;
-  width: 200px;
+  font-size: 17pt;
+  width: 400px;
   text-align: center;
   padding: 10px;
   position: absolute;

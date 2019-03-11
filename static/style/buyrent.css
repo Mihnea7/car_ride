@@ -1,12 +1,9 @@
-* {
-  font-family: Agency FB, Helvetica, sans-serif;
-}
 
 .postbox{
   width: 100px;
   padding: 10px;
   margin: 10px;
-  height: 250px;
+  height: 320px;
 }
 
 hr {
@@ -17,12 +14,14 @@ hr {
   border-width: 10px;
   height: 10px;
   background-color: #659DBD;
-
+  position: relative;
 }
 
 .desc{
+  border-radius:20px;
   width: 250px;
-  border: 10px solid #659DBD;
+  border: 5px solid #659DBD;
+  background-color: #C4D1E3;
   padding: 10px;
   margin: auto;
   position: relative;
@@ -35,11 +34,13 @@ p{
 }
 
 .findmore {
-  width: 80px;
-  border: 10px solid #659DBD;
+  border-radius:20px;
+  width: 130px;
+  border: 5px solid #659DBD;
+  background-color: #C4D1E3;
   padding: 10px;
   margin: auto;
   position: relative;
-  left: 669px;
+  left: 620px;
   bottom: 180px;
 }
