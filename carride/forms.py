@@ -27,19 +27,22 @@ class ReviewForm(forms.ModelForm):
 class rateForm(forms.ModelForm):
     widget=forms.Select(choices=INTEGER_CHOICES)
 		
-
 class VehicleForm(forms.ModelForm):
+    make = forms.CharField(max_length=256, help_text="Car Make")
     model = forms.CharField(max_length = 256,
                             help_text='Please enter the car model')
     price = forms.DecimalField(decimal_places = 1, max_digits = 10, 
     	                       help_text='Please enter the price')
     year = forms.IntegerField(help_text='Please enter the Car year')
-    new = forms.BooleanField(help_text='Is the car New?')
-    phoneNum = forms.CharField(max_length = 13)
-    additionalInfo = forms.CharField(max_length = 1024)
-    picture = forms.ImageField()
-
+    new = forms.BooleanField(help_text='Is the Car New?', required=False)
+    phoneNum = forms.CharField(help_text='Please Enter your Phone Number',
+                               max_length = 13)
+    additionalInfo = forms.CharField(help_text='please enter any additional information',
+                                     max_length = 1024)
+    
+    
     class Meta:
         model = Vehicle
-        fields = ('model', 'price', 'year', 'new', 'phoneNum',
+        fields = ('make', 'model', 'price', 'year', 'new', 'phoneNum',
                   'additionalInfo', 'picture')
+
