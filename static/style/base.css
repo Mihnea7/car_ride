@@ -64,7 +64,6 @@ body {
 /* Style the content */
 .content {
   background-color: #F5F5F5;
-  height: 1000px; /* Should be removed. Only for demonstration */
   overflow: hidden;
   position: relative;
 }

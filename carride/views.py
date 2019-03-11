@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from carride.forms import UserForm, UserProfileForm, ReviewForm, VehicleForm, rateForm
+from carride.forms import UserForm, UserProfileForm, ReviewForm, VehicleForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -14,7 +14,7 @@ from django.core.paginator import Paginator
 
 def home(request):
     context_dict ={}
-    response = render(request, 'carride/base.html', context=context_dict)
+    response = render(request, 'carride/home.html', context=context_dict)
     return response
 
 def about(request):
@@ -122,7 +122,7 @@ def show_car_details(request, model_slug):
 def sell(request):
     form = VehicleForm()
     if request.method == 'POST':
-        form = VehicleForm(request.POST)
+        form = VehicleForm(request.POST, request.FILES)
         if form.is_valid():
             form.save(commit=True)
         else:

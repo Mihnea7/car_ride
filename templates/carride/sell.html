@@ -5,7 +5,7 @@
 
 <span id="sell">
 			<h4>Please enter your Car Details</h4>
-			<form id="vehicle_form" method="post" action="{% url 'sell' %}">
+			<form id="vehicle_form" method="post" action="{% url 'sell' %}" enctype="multipart/form-data">
 				{% csrf_token %}
 
 				{% for field in form.visible_fields %}

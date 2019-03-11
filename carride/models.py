@@ -24,7 +24,7 @@ class Vehicle(models.Model):
 	username = models.CharField(max_length = 20, blank=True)
 	phoneNum = models.CharField(max_length = 13, blank=True)
 	additionalInfo = models.CharField(max_length = 1024)
-	picture = models.ImageField(upload_to='help', blank=True)
+	picture = models.ImageField(upload_to='car', blank=True, null=True)
 	forSale= models.BooleanField(default=True)
 
 	def save(self, *args, **kwargs):
