@@ -8,6 +8,7 @@ from django.contrib.auth import logout
 from datetime import datetime
 from django.core.urlresolvers import reverse
 from carride.models import Vehicle, Review
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -133,13 +134,19 @@ def sell(request):
 def buy(request):
     #car_list=Vehicle.objects.order_by('year')[:10]
     car_list = Vehicle.objects.filter(forSale=True)
-    context_dict ={'car_list':car_list}
+    paginator = Paginator(car_list, 15)
+    page=request.GET.get('page',1)
+    car_page=paginator.page(page)
+    context_dict ={'car_list':car_page}
     response = render(request, 'carride/buy.html', context=context_dict)
     return response
 
 def rent(request):
     car_list = Vehicle.objects.filter(forSale=False)
-    context_dict ={'car_list':car_list}
+    paginator = Paginator(car_list, 15)
+    page=request.GET.get('page',1)
+    car_page=paginator.page(page)
+    context_dict ={'car_list':car_page}
     response = render(request, 'carride/rent.html', context=context_dict)
     return response
 

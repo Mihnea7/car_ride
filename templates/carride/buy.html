@@ -2,8 +2,9 @@
 {% load staticfiles %}
 
 {% block body_block %}
-<hr>
-		<link rel="stylesheet" type="text/css" href="{% static "style/buyrent.css" %}"/>
+	
+	<hr>
+	<link rel="stylesheet" type="text/css" href="{% static "style/buyrent.css" %}"/>
 	{% if car_list %}
 	<div>
 	{% for car in car_list %}
@@ -23,5 +24,23 @@
 	{% else %}
 	<p> No cars available for sale. </p>
 	{% endif %}
+	
+	<div class="pagination" style="text-align:center;">
+    <span class="step-links">
+        {% if car_list.has_previous %}
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ car_list.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ car_list.number }} of {{ car_list.paginator.num_pages }}.
+        </span>
+
+        {% if car_list.has_next %}
+            <a href="?page={{ car_list.next_page_number }}">Next</a>
+            <a href="?page={{ car_list.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </span>
+	</div>
 {% endblock %}
 
