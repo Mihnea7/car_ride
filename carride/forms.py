@@ -35,10 +35,10 @@ class VehicleForm(forms.ModelForm):
     new = forms.BooleanField(help_text='Is the Car New?', required=False)
     phoneNum = forms.CharField(help_text='Your Phone Number',
                                max_length = 13)
-    picture = forms.ImageField(help_text='Add Picture of Car',required=False)
+    picture = forms.ImageField(help_text='Add Picture of Car',required=True)
     additionalInfo = forms.CharField(help_text='Additional information',
                                      max_length = 1024)
-    forSale=forms.BooleanField(help_text='Tick if not for Lease')
+    forSale=forms.BooleanField(help_text='Tick if not for Lease', required=False)
     slug=forms.CharField(widget=forms.HiddenInput(), required=False)
 
     

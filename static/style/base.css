@@ -13,6 +13,7 @@ body {
 
 /* Style the top navigation bar */
 .topnav {
+  border:5px solid #659DBD;
   overflow: hidden;
   background-color: #C4D1E3;
   padding: 5px;
