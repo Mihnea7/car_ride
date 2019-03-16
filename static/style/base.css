@@ -1,5 +1,5 @@
 * {
-  font-family: Fabriga Regular, Helvetica, sans-serif;
+  font-family: Agency FB, Helvetica, sans-serif;
 }
 
 body {
@@ -23,7 +23,7 @@ body {
 
 #moto{
   font-size: 17pt;
-  width: 400px;
+  width: 250px;
   text-align: center;
   padding: 10px;
   position: absolute;
@@ -69,6 +69,8 @@ body {
   overflow: hidden;
   position: relative;
 }
+
+
 
 /* Style the footer */
 .footer {

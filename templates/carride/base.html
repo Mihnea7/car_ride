@@ -17,7 +17,7 @@
 	<body>
 		<div class="topnav">
 			<span><a href="{% url 'home' %}"><img src="{% static "images/logo.jpg" %}" alt="CarRide" /></a></span>
-			<span id="moto">WANT TO ESCAPE THE REALITY? GET A CAR AND DRIVE AWAY!</span>
+			<span id="moto">WANT TO ESCAPE THE REALITY? <br /> GET A CAR AND DRIVE AWAY!</span>
 				<ul id="authentication">
 					{% if user.is_authenticated %}
 						<li><a href="{% url 'logout' %}">Logout</a></li>

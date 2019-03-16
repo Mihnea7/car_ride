@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from carride.forms import UserForm, UserProfileForm, ReviewForm, VehicleForm
 from django.contrib.auth import authenticate, login
@@ -82,6 +82,10 @@ def user_logout(request):
 
 def show_car_details(request, model_slug):
     context_dict = {}
+
+    print("Hello")
+
+    print(request.user)
     
     try:
         car = Vehicle.objects.get(slug=model_slug)
@@ -99,15 +103,17 @@ def show_car_details(request, model_slug):
             comment = form.save(commit=False)
             comment.post = car
 
-            current_user = request.user
-            comment.user = current_user
+            #current_user = request.user
+            comment.user = request.user
 
             comment.save()
 
             context_dict['review'] = comment.review
             context_dict['rating'] = comment.rating
-            context_dict['user'] = comment.user.username
-            #return show_car_details(request, model_slug)
+            context_dict['user'] = request.user.username
+
+            return HttpResponseRedirect(reverse('cardetails', kwargs={'model_slug': model_slug}))
+            #redirect(reverse('cardetails', kwargs={'model_slug': model_slug}))
         else:
             print(form.errors)
 
@@ -117,6 +123,9 @@ def show_car_details(request, model_slug):
     context_dict['all_reviews'] = reviews_list
 
     response = render(request, 'carride/cardetails.html', context=context_dict)
+    print("bye")
+
+    print(request.user)
     return response
 
 def sell(request):

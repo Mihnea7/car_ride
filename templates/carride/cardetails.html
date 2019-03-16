@@ -10,9 +10,9 @@
 		<img src="{{ MEDIA_URL }}{{chosen_car.picture}}" alt="CAR" height="300"/>
 	</div>
 	
-	<div id='block'>
+	<div id="block">
 
-		<span id="spec">
+		<div id="spec">
 			<h3>Model: {{ chosen_car.model }}</h3>
 			<h3>Price: {{ chosen_car.price }}</h3>
 			<h3>Year: {{ chosen_car.year }}</h3>
@@ -20,7 +20,7 @@
 			<h3>Username: {{ chosen_car.username }}</h3>
 			<h3>Phone number: {{ chosen_car.phoneNum }}</h3>
 			<h3>Additional Info: {{ chosen_car.additionalInfo }}</h3>
-		</span>
+		</div>
 		
 		
 		<div class="review">
