@@ -23,11 +23,11 @@ body {
 
 #moto{
   font-size: 17pt;
-  width: 250px;
+  width: 550px;
   text-align: center;
   padding: 10px;
   position: absolute;
-  top: 15px;
+  top: -10px;
 }
 
 #authentication {

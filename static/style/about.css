@@ -1,0 +1,12 @@
+ /* Three image containers (use 25% for four, and 50% for two, etc) */
+.col {
+  float: left;
+  display:inline-blocks;
+  padding: 60px;
+}
+
+.row {
+  float: right;
+  display:inline-blocks;
+  padding: 60px;
+}
