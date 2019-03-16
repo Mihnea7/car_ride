@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from carride.forms import UserForm, UserProfileForm, ReviewForm, VehicleForm
+from carride.forms import UserForm, UserProfileForm, ReviewForm, VehicleForm, CompareForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -161,5 +161,13 @@ def rent(request):
 
 def compare(request):
     context_dict ={}
+
+    if request.method == 'POST':
+        form = CompareForm(request.POST)
+        if form.is_valid():
+            print('ID is correct')
+        else:
+            print('This ID does not exist')
+            
     response = render(request, 'carride/compare.html', context=context_dict)
     return response

@@ -3,4 +3,27 @@
 
 {% block body_block %}
 
+<link rel="stylesheet" type="text/css" href="{% static "style/compare.css" %}"/>
+
+	<hr>
+	<div class="text" style="text-align:center;">
+		<h2>Please specify the ID's of the cars that you wish to compare.<br>
+		These are found in the details of the car.</h2>
+		</div>
+	<hr>
+	<div class="id1">
+		<form id="compare_form" method="post" action="{% url 'compare' %}" enctype="multipart/form-data">
+			{% csrf_token %}
+
+				{% for field in form.visible_fields %}<br><br>
+					{{ field.errors }}
+					{{ field.help_text }}
+					{{ field }}
+					
+				{% endfor %}
+				<br><br>
+				<input type="submit" name="submit" value="Compare" />
+		</form>
+	
+	
 {% endblock %}

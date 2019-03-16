@@ -12,7 +12,8 @@
 	<a href="/carride/cardetails/{{car.slug}}/"><img src="{{ MEDIA_URL }}{{ car.picture }}" alt="CAR" height="200"/></a>
 	<div class='desc'>
 			<h2 style="text-align:center;"><u> Description </u></h2>
-		<p> <b>Make:</b> {{ car.make }} <br><b>Model:</b> {{ car.model }} <br> <b>Year:</b> {{ car.year }} <br> <b>Price:</b> £ {{ car.price }} 
+		<p> <b>Make:</b> {{ car.make }} <br><b>Model:</b> {{ car.model }} <br> 
+		<b>Year:</b> {{ car.year }} <br> <b>Price £ :</b> {{ car.price }} <br> <b> ID: </b> {{car.ID}}
 		</p>
 	</div>
 	<a href="/carride/cardetails/{{car.slug}}/"><div class="findmore"> 

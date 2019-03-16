@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
@@ -6,7 +7,6 @@ from django.utils import timezone
 class UserProfile(models.Model):
 # This line is required. Links UserProfile to a User model instance.
     user = models.OneToOneField(User)
-    
 # The additional attributes we wish to include.
     website = models.URLField(blank=True)
     picture = models.ImageField(upload_to='profile_images', blank=True)
@@ -17,6 +17,7 @@ class UserProfile(models.Model):
 class Vehicle(models.Model):
 	slug = models.SlugField(unique=True)
 	model = models.CharField(max_length = 256, unique=True)
+	ID = models.AutoField(primary_key= True, unique= True)
 	make = models.CharField(max_length = 256)
 	price = models.DecimalField(decimal_places = 1, max_digits = 10, null=True)
 	year = models.IntegerField(null=True)

@@ -1,0 +1,19 @@
+.text{
+  border-radius:20px;
+  width:800px;
+  border: 5px solid #659DBD;
+  background-color: #C4D1E3;
+  margin: auto;
+  padding: 10px;
+}
+
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border-style: none;
+  border-width: 10px;
+  height: 10px;
+  background-color: #659DBD;
+  position: relative;
+}

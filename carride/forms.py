@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from carride.models import UserProfile, Review, Vehicle
+from carride.models import UserProfile, Review, Vehicle 
 
 INTEGER_CHOICES= [tuple([x,x]) for x in range(0,10)]
 
@@ -45,5 +45,12 @@ class VehicleForm(forms.ModelForm):
     class Meta:
         model = Vehicle
         fields = ('make', 'model', 'price', 'year', 'new', 'phoneNum',
-                  'additionalInfo', 'picture','forSale')
+                  'additionalInfo', 'picture','forSale',)
 
+class CompareForm(forms.ModelForm):
+    ID1= forms.IntegerField(help_text="ID of Car 1: ")
+    ID2= forms.IntegerField(help_text="ID of Car 2: ")
+
+    class Meta:
+        model = Vehicle
+        fields = ('ID','ID')
