@@ -1,5 +1,6 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from carride import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
@@ -13,6 +14,7 @@ urlpatterns = [
     url(r'^buy/$', views.buy, name='buy'),
     url(r'^rent/$', views.rent, name='rent'),
     url(r'^compare/$', views.compare, name='compare'),
+    url(r'^auth/', include('social_django.urls',namespace='social')),
     ]
 
 
