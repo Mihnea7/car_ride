@@ -39,13 +39,14 @@ class VehicleForm(forms.ModelForm):
     additionalInfo = forms.CharField(help_text='Additional information',
                                      max_length = 1024)
     forSale=forms.BooleanField(help_text='Tick if not for Lease', required=False)
+    username = forms.CharField(help_text='Please enter your full name')
     slug=forms.CharField(widget=forms.HiddenInput(), required=False)
 
     
     class Meta:
         model = Vehicle
         fields = ('make', 'model', 'price', 'year', 'new', 'phoneNum',
-                  'additionalInfo', 'picture','forSale',)
+                  'additionalInfo', 'picture','forSale', 'username')
 
 class CompareForm(forms.ModelForm):
     ID1= forms.IntegerField(help_text="ID of Car 1: ")

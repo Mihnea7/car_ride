@@ -11,26 +11,26 @@ def populate():
 
 	car_info = [
 	{"make":"Porsche",
-         "model": "Macan S", "forSale": True,
-	 "price": 48750, "year": 2018, "new": True, "username": "", 
+     "model": "Macan S", "forSale": True,
+	 "price": 48750, "year": 2018, "new": True, "username": "Deni Nedjalkova", 
 	 "phoneNum": "+447928962187", "additionalInfo": "blue colour",
 	 "picture": ImageFile(open('media\\Porsche-Macan-02.jpg', 'rb')), },
 
 	{"make":"Tesla",
-         "model": "Model S", "forSale": False,
-	 "price": 73500, "year": 2016, "new": True, "username": "", 
+     "model": "Model S", "forSale": False,
+	 "price": 73500, "year": 2016, "new": True, "username": "Deni Nedjalkova", 
 	 "phoneNum": "+447928962185", "additionalInfo": "silver colour",
 	 "picture": ImageFile(open('media\\tesla-s.jpg', 'rb')), },
 
-        {"make":"Ford",
-         "model": "Fiesta", "forSale": True,
-	 "price": 2300, "year": 2009, "new": False, "username": "", 
+    {"make":"Ford",
+     "model": "Fiesta", "forSale": True,
+	 "price": 2300, "year": 2009, "new": False, "username": "Deni Nedjalkova", 
 	 "phoneNum": "+447928962187", "additionalInfo": "dark blue colour",
 	 "picture": ImageFile(open('media\\Ford_Fiesta_2009.jpg', 'rb')), },
 
-        {"make":"Volvo",
-         "model": "740 Turbo", "forSale": True,
-	 "price": 10000, "year": 1985, "new": False, "username": "", 
+    {"make":"Volvo",
+     "model": "740 Turbo", "forSale": True,
+	 "price": 10000, "year": 1985, "new": False, "username": "Deni Nedjalkova", 
 	 "phoneNum": "+447928962187", "additionalInfo": "silver colour",
 	 "picture": ImageFile(open('media\\volvo_740_1985_turbo.jpg', 'rb')), },
 	]

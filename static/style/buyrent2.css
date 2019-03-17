@@ -1,10 +1,10 @@
 
 .postbox{
+  display: inline-block;
   width: 100px;
   padding: 10px;
   margin: 10px;
   height: 320px;
-  float: right;
   position: relative;
 }
 
@@ -19,7 +19,7 @@ hr {
   position: relative;
 }
 
-.desc{
+.desc {
   border-radius:20px;
   width: 250px;
   border: 5px solid #659DBD;
@@ -27,8 +27,6 @@ hr {
   padding: 10px;
   margin: auto;
   position: relative;
-  left: 500px;
-  bottom: 200px;
 }
 
 p{

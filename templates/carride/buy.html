@@ -7,43 +7,42 @@
 	<link rel="stylesheet" type="text/css" href="{% static "style/buyrent.css" %}"/>
 	
 	{% if car_list %}
-<div>
-	{% for car in car_list %}
-	<div class='postbox'>
-	
-		<a href="/carride/cardetails/{{car.slug}}/"><img src="{{ MEDIA_URL }}{{ car.picture }}" alt="CAR" height="220"/></a>
-		<div class='desc'>
-			<h2 style="text-align:center;"><u> Description </u></h2>
-			<p> <b>Make:</b> {{ car.make }} <br><b>Model:</b> {{ car.model }} <br> 
-			<b>Year:</b> {{ car.year }} <br> <b>Price:</b> £ {{ car.price }} <br> <b> ID: </b> {{car.ID}}
-			</p>
+
+		{% for car in car_list %}
+		<div class='postbox'>
+		
+			<a href="/carride/cardetails/{{car.slug}}/"><img src="{{ MEDIA_URL }}{{ car.picture }}" alt="CAR" height="220"/></a>
+			<div class='desc'>
+				<h2 style="text-align:center;"><u> Description </u></h2>
+				<p> <b>Make:</b> {{ car.make }} <br><b>Model:</b> {{ car.model }} <br> 
+				<b>Year:</b> {{ car.year }} <br> <b>Price:</b> £ {{ car.price }} <br> <b> ID: </b> {{car.ID}} </p>
+			</div>
+			<a href="/carride/cardetails/{{car.slug}}/"><div class="findmore"> FIND OUT MORE </div></a>
+
 		</div>
-		<a href="/carride/cardetails/{{car.slug}}/"><div class="findmore"> 
-		FIND OUT MORE 
-	</div></a>
-</div>
-		<hr>
+			<hr>
 		{% endfor %}
-		{% else %}
-		<p> No cars available for sale. </p>
-		{% endif %}
+		
+	{% else %}
+	<p> No cars available for sale. </p>
+	{% endif %}
 	
 	<div class="pagination" style="text-align:center;">
-    <span class="step-links">
-        {% if car_list.has_previous %}
-            <a href="?page=1">&laquo; First</a>
-            <a href="?page={{ car_list.previous_page_number }}">Previous</a>
-        {% endif %}
+	    <span class="step-links">
+	        {% if car_list.has_previous %}
+	            <a href="?page=1">&laquo; First</a>
+	            <a href="?page={{ car_list.previous_page_number }}">Previous</a>
+	        {% endif %}
 
-        <span class="current">
-            Page {{ car_list.number }} of {{ car_list.paginator.num_pages }}.
-        </span>
+	        <span class="current">
+	            Page {{ car_list.number }} of {{ car_list.paginator.num_pages }}.
+	        </span>
 
-        {% if car_list.has_next %}
-            <a href="?page={{ car_list.next_page_number }}">Next</a>
-            <a href="?page={{ car_list.paginator.num_pages }}">Last &raquo;</a>
-        {% endif %}
-    </span>
+	        {% if car_list.has_next %}
+	            <a href="?page={{ car_list.next_page_number }}">Next</a>
+	            <a href="?page={{ car_list.paginator.num_pages }}">Last &raquo;</a>
+	        {% endif %}
+	    </span>
 	</div>
 {% endblock %}
 
