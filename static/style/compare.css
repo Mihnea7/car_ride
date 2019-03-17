@@ -7,6 +7,15 @@
   padding: 10px;
 }
 
+.compare_form{
+  border-radius:20px;
+  width:400px;
+  border: 5px solid #659DBD;
+  background-color: #C4D1E3;
+  margin: auto;
+  padding: 10px;
+}
+
 hr {
   display: block;
   margin-top: 0.5em;
@@ -18,16 +27,18 @@ hr {
   position: relative;
 }
 
-#block {
+.block1 {
   vertical-align: 
 }
 
-#car1 {
+.car1 {
+  float:left;
   display: inline-block;
-  width: 40%;
+  width: 38%;
+  left: 150px;
 }
 
-#car1 h3{
+.car1 h3{
   position: relative;
   left: 150px;
   top: 10px;
@@ -35,16 +46,43 @@ hr {
   border: solid #999;
 }
 
-#carimage1 {
+.car1 h2{
+  position: relative;
+  left: 150px;
+  top: 10px;
+  width: 70%;
+}
+
+.car2 {
+  float:right;
+  display: inline-block;
+  width: 38%;
+  left: 50px;
+}
+
+.car2 h3{
+  position: relative;
+  top: 10px;
+  width: 70%;
+  border: solid #999;
+}
+
+.car2 h2{
+  position: relative;
+  top: 10px;
+  width: 70%;
+}
+
+.carimage1 {
   float: left;
   position: relative;
-  left: 110px;
+  left: 100px;
   vertical-align: text-bottom;
 }
 
-#carimage2 {
+.carimage2 {
   float: right;
   position: relative;
-  left: 40px;
+  right: 100px;
   vertical-align: text-bottom;
 }

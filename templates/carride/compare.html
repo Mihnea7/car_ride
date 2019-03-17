@@ -12,22 +12,25 @@
 	</div>
 	<hr>
 	
-	<form id="compare_form" method="post" action="{% url 'compare' %}" enctype="multipart/form-data">
+	<form class="compare_form" method="post" action="{% url 'compare' %}" enctype="multipart/form-data">
 		{% csrf_token %}
-			<div align="center">
+			<div align="center"><font size="4">
 			{% for field in form.visible_fields %}<br><br>
 				{{ field.errors }}
 				{{ field.help_text }}
 				{{ field }}
-				
 			{% endfor %}
+			</font>
 			<br><br>
 			<input type="submit" name="submit" value="Compare" />
 			</div>
 	</form>
-	<div id="block">
-		<div id="car1" width="200" display="inline-block">
+	<hr>
+	
+	<div class="block">
+		<div class="car1" width="200" display="inline-block">
 			{% if car_1 %}
+				<h2 style="text-align:center;">CAR 1:</h2><br>
 				<h3>ID: {{ car_1.ID }}</h3>
 				<h3>Model: {{ car_1.model }}</h3>
 				<h3>Price: {{ car_1.price }}</h3>
@@ -37,13 +40,14 @@
 				<h3>Phone number: {{ car_1.phoneNum }}</h3>
 				<h3>Additional Info: {{ car_1.additionalInfo }}</h3>
 				<br/>
-				<div id="carimage1">
+				<div class="carimage1">
 					<img src="{{ MEDIA_URL }}{{car_1.picture}}" alt="CAR1" height="200"/>
 				</div>
 			{% endif %}
 		</div>
-		<div id="car1" width="200" display="inline-block">
+		<div class="car2" width="200" display="inline-block">
 			{% if car_2 %}
+				<h2 style="text-align:center;">CAR 2:</h2><br>
 				<h3>ID: {{ car_2.ID }}</h3>
 				<h3>Model: {{ car_2.model }}</h3>
 				<h3>Price: {{ car_2.price }}</h3>
@@ -53,7 +57,7 @@
 				<h3>Phone number: {{ car_2.phoneNum }}</h3>
 				<h3>Additional Info: {{ car_2.additionalInfo }}</h3>
 				<br/>
-				<div id="carimage2">
+				<div class="carimage2">
 					<img src="{{ MEDIA_URL }}{{car_2.picture}}" alt="CAR2" height="200"/>
 				</div>
 			{% endif %}
