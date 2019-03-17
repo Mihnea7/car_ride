@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from carride.models import UserProfile, Review, Vehicle 
 
-INTEGER_CHOICES= [tuple([x,x]) for x in range(0,10)]
+#INTEGER_CHOICES= [tuple([x,x]) for x in range(0,10)]
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
@@ -53,4 +53,4 @@ class CompareForm(forms.ModelForm):
 
     class Meta:
         model = Vehicle
-        fields = ('ID','ID')
+        fields = ('ID',)

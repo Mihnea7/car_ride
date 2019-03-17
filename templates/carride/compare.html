@@ -9,21 +9,55 @@
 	<div class="text" style="text-align:center;">
 		<h2>Please specify the ID's of the cars that you wish to compare.<br>
 		These are found in the details of the car.</h2>
-		</div>
+	</div>
 	<hr>
-	<div class="id1">
-		<form id="compare_form" method="post" action="{% url 'compare' %}" enctype="multipart/form-data">
-			{% csrf_token %}
+	
+	<form id="compare_form" method="post" action="{% url 'compare' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+			<div align="center">
+			{% for field in form.visible_fields %}<br><br>
+				{{ field.errors }}
+				{{ field.help_text }}
+				{{ field }}
+				
+			{% endfor %}
+			<br><br>
+			<input type="submit" name="submit" value="Compare" />
+			</div>
+	</form>
+	<div id="block">
+		<div id="car1" width="200" display="inline-block">
+			{% if car_1 %}
+				<h3>ID: {{ car_1.ID }}</h3>
+				<h3>Model: {{ car_1.model }}</h3>
+				<h3>Price: {{ car_1.price }}</h3>
+				<h3>Year: {{ car_1.year }}</h3>
+				<h3>New/old: {{ car_1.new }}</h3>
+				<h3>Username: {{ car_1.username }}</h3>
+				<h3>Phone number: {{ car_1.phoneNum }}</h3>
+				<h3>Additional Info: {{ car_1.additionalInfo }}</h3>
+				<br/>
+				<div id="carimage1">
+					<img src="{{ MEDIA_URL }}{{car_1.picture}}" alt="CAR1" height="200"/>
+				</div>
+			{% endif %}
+		</div>
+		<div id="car1" width="200" display="inline-block">
+			{% if car_2 %}
+				<h3>ID: {{ car_2.ID }}</h3>
+				<h3>Model: {{ car_2.model }}</h3>
+				<h3>Price: {{ car_2.price }}</h3>
+				<h3>Year: {{ car_2.year }}</h3>
+				<h3>New/old: {{ car_2.new }}</h3>
+				<h3>Username: {{ car_2.username }}</h3>
+				<h3>Phone number: {{ car_2.phoneNum }}</h3>
+				<h3>Additional Info: {{ car_2.additionalInfo }}</h3>
+				<br/>
+				<div id="carimage2">
+					<img src="{{ MEDIA_URL }}{{car_2.picture}}" alt="CAR2" height="200"/>
+				</div>
+			{% endif %}
+		</div>
+	</div>
 
-				{% for field in form.visible_fields %}<br><br>
-					{{ field.errors }}
-					{{ field.help_text }}
-					{{ field }}
-					
-				{% endfor %}
-				<br><br>
-				<input type="submit" name="submit" value="Compare" />
-		</form>
-	
-	
 {% endblock %}

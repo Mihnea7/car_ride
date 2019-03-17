@@ -17,3 +17,34 @@ hr {
   background-color: #659DBD;
   position: relative;
 }
+
+#block {
+  vertical-align: 
+}
+
+#car1 {
+  display: inline-block;
+  width: 40%;
+}
+
+#car1 h3{
+  position: relative;
+  left: 150px;
+  top: 10px;
+  width: 70%;
+  border: solid #999;
+}
+
+#carimage1 {
+  float: left;
+  position: relative;
+  left: 110px;
+  vertical-align: text-bottom;
+}
+
+#carimage2 {
+  float: right;
+  position: relative;
+  left: 40px;
+  vertical-align: text-bottom;
+}

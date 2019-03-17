@@ -15,8 +15,8 @@ class UserProfile(models.Model):
         return self.user.username
 
 class Vehicle(models.Model):
-	slug = models.SlugField(unique=True)
-	model = models.CharField(max_length = 256, unique=True)
+	slug = models.SlugField()
+	model = models.CharField(max_length = 256)
 	ID = models.AutoField(primary_key= True, unique= True)
 	make = models.CharField(max_length = 256)
 	price = models.DecimalField(decimal_places = 1, max_digits = 10, null=True)

@@ -128,6 +128,39 @@ def show_car_details(request, model_slug):
     print(request.user)
     return response
 
+def compare(request):
+    context_dict ={}
+
+    form = CompareForm()
+
+    if request.method == 'POST':
+        form = CompareForm(request.POST)
+        if form.is_valid():
+
+            form.save(commit = True)
+            form.save(commit = True)
+            try:
+                car_1 = Vehicle.objects.get(ID=form.cleaned_data['ID1'])
+                context_dict['car_1'] = car_1
+            except Vehicle.DoesNotExist:
+                context_dict['car_1'] = None
+
+            try:
+                car_2 = Vehicle.objects.get(ID=form.cleaned_data['ID2'])
+                context_dict['car_2'] = car_2
+            except Vehicle.DoesNotExist:
+                context_dict['car_2'] = None
+        
+        else:
+
+            print(form.errors)
+            print('This ID does not exist')
+
+    context_dict['form'] = form
+
+    response = render(request, 'carride/compare.html', context_dict)
+    return response
+
 def sell(request):
     form = VehicleForm()
     if request.method == 'POST':
@@ -157,17 +190,4 @@ def rent(request):
     car_page=paginator.page(page)
     context_dict ={'car_list':car_page}
     response = render(request, 'carride/rent.html', context=context_dict)
-    return response
-
-def compare(request):
-    context_dict ={}
-
-    if request.method == 'POST':
-        form = CompareForm(request.POST)
-        if form.is_valid():
-            print('ID is correct')
-        else:
-            print('This ID does not exist')
-            
-    response = render(request, 'carride/compare.html', context=context_dict)
     return response
