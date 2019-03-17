@@ -1,10 +1,8 @@
-
 .postbox{
   width: 100px;
   padding: 10px;
   margin: 10px;
   height: 320px;
-  float: right;
   position: relative;
 }
 
@@ -64,4 +62,3 @@ p{
   background-color: #C4D1E3;
   border-radius: 5px;
 }
-
