@@ -17,6 +17,8 @@ class Round(Func):
 
 def home(request):
     context_dict ={}
+    context_dict['top_cars'] = Vehicle.objects.order_by('-rating')[:3]
+    
     response = render(request, 'carride/home.html', context=context_dict)
     return response
 
