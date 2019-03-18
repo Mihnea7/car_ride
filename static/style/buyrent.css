@@ -46,6 +46,19 @@ p{
   bottom: 180px;
 }
 
+.rating {
+  text-align: center;
+  border-radius:20px;
+  width: 100px;
+  border: 5px solid #659DBD;
+  background-color: #C4D1E3;
+  padding: 10px;
+  margin: auto;
+  position: relative;
+  left: 500px;
+  bottom: 228.5px;
+}
+
 .pagination {
   color: black;
   float: center;

@@ -18,9 +18,12 @@
 				<b>Year:</b> {{ car.year }} <br> <b>Price:</b> £ {{ car.price }} <br> <b> ID: </b> {{car.ID}} </p>
 			</div>
 			<a href="/carride/cardetails/{{car.slug}}/"><div class="findmore"> FIND OUT MORE </div></a>
-
+			<div class = "rating">
+				RATE {{ car.rating }}
+			</div>
 		</div>
 			<hr>
+			
 		{% endfor %}
 		
 	{% else %}

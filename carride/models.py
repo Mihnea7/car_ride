@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.utils import timezone
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class UserProfile(models.Model):
 # This line is required. Links UserProfile to a User model instance.
@@ -27,6 +28,7 @@ class Vehicle(models.Model):
 	additionalInfo = models.CharField(max_length = 1024)
 	picture = models.ImageField(upload_to='car', blank=True, null=True)
 	forSale= models.BooleanField(default=True)
+	rating = models.DecimalField(decimal_places = 1, max_digits = 10,null=True)
 
 	def save(self, *args, **kwargs):
 		to_slugify = str(self.make) + ' ' + str(self.model)
@@ -40,9 +42,8 @@ class Vehicle(models.Model):
 class Review(models.Model):
 	post = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
 	review = models.CharField(max_length = 1024)
-	rating = models.DecimalField(decimal_places = 1, max_digits = 5, null=True)
+	rating = models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(10)], null=True)
 	created_date = models.DateTimeField(default=timezone.now)
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
-
 	def __str__(self):
 		return self.review

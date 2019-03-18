@@ -9,8 +9,11 @@ from datetime import datetime
 from django.core.urlresolvers import reverse
 from carride.models import Vehicle, Review
 from django.core.paginator import Paginator
-
+from django.db.models import Avg, Func
 # Create your views here.
+class Round(Func):
+    function='ROUND'
+    arity=2
 
 def home(request):
     context_dict ={}
@@ -118,6 +121,9 @@ def show_car_details(request, model_slug):
             print(form.errors)
 
     context_dict['form'] = form
+    context_dict['avgrate']=Review.objects.filter(post=car.ID).aggregate(Avg=Round(Avg('rating'),1))
+    car.rating=context_dict['avgrate']['Avg']
+    car.save()
 
     reviews_list = Review.objects.filter(post=car).order_by('-created_date')[:5]
     context_dict['all_reviews'] = reviews_list
@@ -137,8 +143,9 @@ def compare(request):
         form = CompareForm(request.POST)
         if form.is_valid():
 
-            form.save(commit = True)
-            form.save(commit = True)
+            form.save(commit = False)
+            form.save(commit = False)
+
             try:
                 car_1 = Vehicle.objects.get(ID=form.cleaned_data['ID1'])
                 context_dict['car_1'] = car_1
@@ -174,16 +181,17 @@ def sell(request):
     return response
 
 def buy(request):
-    #car_list=Vehicle.objects.order_by('year')[:10]
+
     car_list = Vehicle.objects.filter(forSale=True)
     paginator = Paginator(car_list, 2)
     page=request.GET.get('page',1)
     car_page=paginator.page(page)
-    context_dict ={'car_list':car_page}
+    context_dict ={'car_list':car_page}    
     response = render(request, 'carride/buy.html', context=context_dict)
     return response
 
 def rent(request):
+    
     car_list = Vehicle.objects.filter(forSale=False)
     paginator = Paginator(car_list, 2)
     page=request.GET.get('page',1)

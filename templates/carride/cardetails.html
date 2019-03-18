@@ -25,6 +25,11 @@
 			<h3>Name of the owner: {{ chosen_car.username }}</h3>
 			<h3>Phone number: {{ chosen_car.phoneNum }}</h3>
 			<h3>Additional Info: {{ chosen_car.additionalInfo }}</h3>
+			
+			
+			{% for key, value in avgrate.items %}
+			<h3 style="background-color:powderblue;">Average Rating: {{ value }}</h3>
+			{% endfor %}
 		</div>
 		
 		
@@ -54,7 +59,7 @@
 			<span id="all_reviews">
 				{% if all_reviews %}
 					{% for comment in all_reviews %}
-						<h4>{{ comment.user }}: {{ comment.review }}</h4>
+						<h4>{{ comment.user }} rated it {{comment.rating}} says: {{ comment.review }}</h4>
 					{% endfor %}
 				{% endif %}
 			</span>
