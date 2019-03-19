@@ -3,6 +3,11 @@
   width: 45%;
 }
 
+.content{
+  position:relative;
+  height:900px;
+}
+
 #spec h3{
   position: relative;
   left: 80px;
@@ -38,19 +43,8 @@ body{
   background: linear-gradient(#fff,#f2f6f9);
 }
 
-
-.review2{
-  overflow:hidden;
-  position: relative;
-  float: right;
-  left:-70px;
-  bottom: 250px;
-  width: 350px;
-  height: 300px;
-  max-height: 300px;
-  box-shadow: 0 0 0 1px rgba(14,41,57,0.12),0 2px 5px rgba(14,41,57,0.44),inset 0 -1px 2px rgba(14,41,57,0.15);
-  padding: 5px 5px 5px 5px;
-  background: linear-gradient(#fff,#f2f6f9);
+.comments{
+   background:linear-gradient(#DAE8FC,#f2f6f9);
 }
 
 hr{
@@ -70,11 +64,6 @@ label1{
 
 label2{
   font-size: 17px
-}
-
-.comments{
-  overflow:auto;
-  max-height:200px;
 }
 
 input{

@@ -7,9 +7,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
 from django.core.urlresolvers import reverse
-from carride.models import Vehicle, Review
+from carride.models import Vehicle, Review, UserProfile
 from django.core.paginator import Paginator
 from django.db.models import Avg, Func
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -75,7 +76,14 @@ def user_login(request):
 
 @login_required
 def MyAccount(request):
-    response = render(request, 'carride/myaccount.html',{})
+    context_dict={}
+    user = request.user
+    try:
+        profile = UserProfile.objects.get(user=user)
+        context_dict['picture'] = profile.picture
+    except:
+        context_dict['default'] = 'default'
+    response = render(request, 'carride/myaccount.html',context_dict)
     return response
 
 @login_required
