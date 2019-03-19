@@ -11,6 +11,8 @@ from carride.models import Vehicle, Review
 from django.core.paginator import Paginator
 from django.db.models import Avg, Func
 # Create your views here.
+
+
 class Round(Func):
     function='ROUND'
     arity=2

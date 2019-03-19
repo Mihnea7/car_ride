@@ -35,7 +35,11 @@
 				<h3>Model: {{ car_1.model }}</h3>
 				<h3>Price: {{ car_1.price }}</h3>
 				<h3>Year: {{ car_1.year }}</h3>
-				<h3>New/old: {{ car_1.new }}</h3>
+				{% if chosen_car.new %}
+				<h3>New/old: New</h3>
+			{% else %}
+				<h3>New/old: Old</h3>
+			{% endif %}
 				<h3>Username: {{ car_1.username }}</h3>
 				<h3>Phone number: {{ car_1.phoneNum }}</h3>
 				<h3>Additional Info: {{ car_1.additionalInfo }}</h3>
@@ -52,7 +56,11 @@
 				<h3>Model: {{ car_2.model }}</h3>
 				<h3>Price: {{ car_2.price }}</h3>
 				<h3>Year: {{ car_2.year }}</h3>
-				<h3>New/old: {{ car_2.new }}</h3>
+				{% if chosen_car.new %}
+				<h3>New/old: New</h3>
+			{% else %}
+				<h3>New/old: Old</h3>
+			{% endif %}
 				<h3>Username: {{ car_2.username }}</h3>
 				<h3>Phone number: {{ car_2.phoneNum }}</h3>
 				<h3>Additional Info: {{ car_2.additionalInfo }}</h3>

@@ -2,13 +2,11 @@
 {% load staticfiles %}
 
 {% block body_block %}
-	<style>
-		div #details {
-			text-align: center;
-		}
-	</style>
-	<div id="details">
-		<h3>{{ user.picture }}</h3>
+<link rel="stylesheet" type="text/css" href="{% static "style/myaccount.css" %}"/>
+
+
+	<div class="details" style="text-align:center;">
+		<h3>Picture: {{ user.picture }}</h3>
 		<h3>Username: {{ user.username }}</h3>
 		<h3>Email ID: {{ user.email }}</h3>
 		<h3>My Posts: {{ user.posts }}</h3>

@@ -7,7 +7,7 @@
 	</head>
 	<hr />
 	<div id="carimage">
-		<img src="{{ MEDIA_URL }}{{chosen_car.picture}}" alt="CAR" height="300"/>
+		<img src="{{ MEDIA_URL }}{{chosen_car.picture}}" alt="CAR" height="200"/>
 	</div>
 	
 	
@@ -34,7 +34,7 @@
 		
 		
 		<div class="review">
-			<h4>Please enter your review</h4>
+			<h3><u>Please enter your review </u></h3>
 			<form id="review_form" method="post" action="/carride/cardetails/{{chosen_car.slug}}/">
 				{% csrf_token %}
 
@@ -42,10 +42,10 @@
 					{{ field.errors }}
 					{{ field.help_text }}
 					{% if field.name == 'review' %}
-						<label>Review:</label>
-						<textarea name="review" placeholder="Review"></textarea>
+						<label1>Review:</label1><br>
+						<textarea name="review" placeholder="Review"></textarea><br>
 					{% else %}
-						<label>Rating:</label>
+						<label2>Rating:</label2><br>
 						<input name="rating" placeholder="Rating" type="number">
 					{% endif %}
 				{% endfor %}
@@ -55,15 +55,19 @@
 					<h3>You have to be signed in to leave a review</h3>
 				{% endif %}
 			</form>
-			<h3>Previous reviews:</h3>
-			<span id="all_reviews">
+		</div><br>
+		
+		<div class="review2">
+			<h3><u>Previous reviews: </u></h3>
+			<div class="comments">
+			<span class="all_reviews">
 				{% if all_reviews %}
 					{% for comment in all_reviews %}
 						<h4>{{ comment.user }} rated it {{comment.rating}} says: {{ comment.review }}</h4>
 					{% endfor %}
 				{% endif %}
 			</span>
+			</div>
 		</div>
 
-	
 {% endblock %}
