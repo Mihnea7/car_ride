@@ -11,40 +11,41 @@ def populate():
 
 	car_info = [
 	{"make":"Porsche",
-     "model": "Macan S", "forSale": True,
+     "model": "Macan S", "forSale": True, "numplate": "xxxx",
 	 "price": 48750, "year": 2018, "new": True, "username": "Deni Nedjalkova", 
 	 "phoneNum": "+447928962187", "additionalInfo": "blue colour",
 	 "picture": ImageFile(open('media\\Porsche-Macan-02.jpg', 'rb')), },
 
 	{"make":"Tesla",
-     "model": "Model S", "forSale": False,
+     "model": "Model S", "forSale": False, "numplate": "xyyy",
 	 "price": 73500, "year": 2016, "new": True, "username": "Deni Nedjalkova", 
 	 "phoneNum": "+447928962185", "additionalInfo": "silver colour",
 	 "picture": ImageFile(open('media\\tesla-s.jpg', 'rb')), },
 
     {"make":"Ford",
-     "model": "Fiesta", "forSale": True,
+     "model": "Fiesta", "forSale": True, "numplate": "xxxz",
 	 "price": 2300, "year": 2009, "new": False, "username": "Deni Nedjalkova", 
 	 "phoneNum": "+447928962187", "additionalInfo": "dark blue colour",
 	 "picture": ImageFile(open('media\\Ford_Fiesta_2009.jpg', 'rb')), },
 
     {"make":"Volvo",
-     "model": "740 Turbo", "forSale": True,
+     "model": "740 Turbo", "forSale": True, "numplate": "xwxx",
 	 "price": 10000, "year": 1985, "new": False, "username": "Deni Nedjalkova", 
 	 "phoneNum": "+447928962187", "additionalInfo": "silver colour",
 	 "picture": ImageFile(open('media\\volvo_740_1985_turbo.jpg', 'rb')), },
 	]
 
 	for c in car_info:
-	 	add_car(c["make"], c["model"], c["price"], c["year"], c["new"],
+	 	add_car(c["make"], c["model"], c["numplate"], c["price"], c["year"], c["new"],
                                 c["username"], c["phoneNum"], c["additionalInfo"], c["picture"], c["forSale"])
 
 	for c in Vehicle.objects.all():
 		print(c)
 
-def add_car(make, model, price, year, new, username, phoneNum, info, picture, forSale):
+def add_car(make, model, numplate, price, year, new, username, phoneNum, info, picture, forSale):
 	v = Vehicle.objects.get_or_create(model=model)[0]
 	v.make=make
+	v.numplate=numplate
 	v.forSale= forSale
 	v.price = price
 	v.year = year
@@ -58,4 +59,4 @@ def add_car(make, model, price, year, new, username, phoneNum, info, picture, fo
 
 if __name__ == '__main__':
 	print("Starting CarRide population script...")
-	populate()
+populate()

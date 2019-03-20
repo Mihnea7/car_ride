@@ -14,6 +14,19 @@
 	{% endif %}
 		<h3>Username: {{ user.username }}</h3>
 		<h3>Email ID: {{ user.email }}</h3>
-		<h3>My Posts: {{ user.posts }}</h3>
+		<h2><u> My posts </u></h2>
+			<div class = "posts">
+				{% for car in posts %}
+				<a href="/carride/cardetails/{{car.slug}}/" style='text-decoration:none'>{{car.make}} {{car.model}} {{car.year}} {{car.numplate}}</a>
+				<br>
+				{% endfor %}
+			</div>
 	</div>
+
+	
+	<br>
+	<div style="text-align:center;"><font size="4">
+	<button type='delete' onclick="window.location.href = '{% url 'delete_account' %}';"> Delete Account </bottom>
+	</font></div>
+	<br>
 {% endblock %}

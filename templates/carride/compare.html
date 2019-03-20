@@ -7,13 +7,14 @@
 
 	<hr>
 	<div class="text" style="text-align:center;">
-		<h2>Please specify the ID's of the cars that you wish to compare.<br>
-		These are found in the details of the car.</h2>
+		<h2>Compare two cars in terms of make, model, price, year, owner details, additional info and picture.</h2>
 	</div>
 	<hr>
 	
 	<form class="compare_form" method="post" action="{% url 'compare' %}" enctype="multipart/form-data">
 		{% csrf_token %}
+		<h3 style="text-align:center;">Please specify the ID's of the cars that you wish to compare.<br>
+										These are found in the details of the car.</h3>
 			<div align="center"><font size="4">
 			{% for field in form.visible_fields %}<br><br>
 				{{ field.errors }}

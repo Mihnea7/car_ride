@@ -78,11 +78,14 @@ def user_login(request):
 def MyAccount(request):
     context_dict={}
     user = request.user
+    posts = Vehicle.objects.filter(username=user.username)
+    context_dict['posts'] = posts
     try:
         profile = UserProfile.objects.get(user=user)
         context_dict['picture'] = profile.picture
     except:
         context_dict['default'] = 'default'
+        
     response = render(request, 'carride/myaccount.html',context_dict)
     return response
 
@@ -90,6 +93,21 @@ def MyAccount(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
+
+@login_required
+def delete_account(request):
+    
+    if request.method == 'GET':
+        context = {}
+
+        try:
+            u = User.objects.all().filter(username=request.user.username)
+            u.delete()
+            context['msg'] = 'The user is deleted.'
+        except User.DoesNotExist: 
+            context['msg'] = 'User does not exist.'
+            
+        return render(request, 'carride/delete.html', context=context)
 
 # each view returns HttpResponse object - takes string
 # as a parameter representing the content of the page 
@@ -185,7 +203,10 @@ def sell(request):
     if request.method == 'POST':
         form = VehicleForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save(commit=True)
+            wtf=form.save(commit=False)
+            wtf.username=request.user.username
+            wtf.save()
+            return redirect('/')
         else:
             print(form.errors)
 

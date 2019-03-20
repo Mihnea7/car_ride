@@ -26,26 +26,27 @@ class ReviewForm(forms.ModelForm):
 
 		
 class VehicleForm(forms.ModelForm):
-    make = forms.CharField(max_length=256, help_text="Car Make")
-    model = forms.CharField(max_length = 256,
-                            help_text='Car model')
+    make = forms.CharField(max_length=256, help_text="Car Make", required=True)
+    model = forms.CharField(max_length = 256, help_text='Car model', required=True)
+    numplate = forms.CharField(max_length = 10, help_text="Car Number Plate", required=True)
     price = forms.DecimalField(decimal_places = 1, max_digits = 10, 
-    	                       help_text='Car Price')
-    year = forms.IntegerField( help_text='Car year')
+    	                       help_text='Car Price', required=True)
+    year = forms.IntegerField( help_text='Car year', required=True)
     new = forms.BooleanField(help_text='Is the Car New?', required=False)
     phoneNum = forms.CharField(help_text='Your Phone Number',
                                max_length = 13)
     picture = forms.ImageField(help_text='Add Picture of Car',required=True)
+    username = forms.CharField(widget=forms.HiddenInput(),help_text='Enter Your Username',required=False)
     additionalInfo = forms.CharField(help_text='Additional information',
                                      max_length = 1024)
     forSale=forms.BooleanField(help_text='Tick if not for Lease', required=False)
-    username = forms.CharField(widget=forms.HiddenInput(), required=False)
     slug=forms.CharField(widget=forms.HiddenInput(), required=False)
     
     class Meta:
         model = Vehicle
-        fields = ('make', 'model', 'price', 'year', 'new', 'phoneNum',
-                  'additionalInfo', 'picture','forSale', 'username')
+        fields = ('make', 'model','numplate', 'price', 'year', 'new', 'phoneNum',
+                  'username','additionalInfo', 'picture','forSale')
+
 
 class CompareForm(forms.ModelForm):
     ID1= forms.IntegerField(help_text="ID of Car 1: ")

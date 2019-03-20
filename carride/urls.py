@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^rent/$', views.rent, name='rent'),
     url(r'^compare/$', views.compare, name='compare'),
     url(r'^auth/', include('social_django.urls', namespace='social')),
+    url(r'^delete/', views.delete_account, name='delete_account'),
     ]
 
 
