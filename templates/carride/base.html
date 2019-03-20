@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 {% load staticfiles %}
+
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js">
+</script>
+
+<script src="{% static "js/carride-jquery.js" %}"></script>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="{% static "style/base.css" %}"/>
@@ -30,7 +36,7 @@
 
 		<div class="menu_list">
 			<ul>
-				<li><a href="{% url 'buy' %}">BUY</a></li>
+				<li id="buy_btn"><a href="{% url 'buy' %}">BUY</a></li>
 				<li><a href="{% url 'rent' %}">RENT</a></li>
 				<li><a href="{% url 'sell' %}">SELL/LEASE</a></li>
 				<li><a href="{% url 'compare' %}">COMPARE</a></li>

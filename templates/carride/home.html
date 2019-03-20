@@ -13,10 +13,10 @@
 	
 	<hr>
 	
-	<div class="slideshow-container">
 	
-		<h1 style="text-align:center;"> <u> Top Rated Cars </u> </h1>
+	<h1 id = "slide_title"style="text-align:center;"> <u>Click for our Top Rated Cars </u> </h1>	
 	
+	<div id= "slide" class="slideshow-container">
 	{% for car in top_cars %} 
 		<div class="mySlides fade">
 			<img src="{{ MEDIA_URL }}{{car.picture}}" alt={{car.model}} style="width:70%"/>

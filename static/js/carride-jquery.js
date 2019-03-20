@@ -4,6 +4,12 @@ $(document).ready( function() {
 	$("#m_pic").hide();
 	$("#s_pic").hide();
 	$("#d_pic").hide();
+	$("#slide").hide();
+	$("#account_email").hide();
+	$("#account_name").hide();
+	
+	$("#account_cars").hide();
+	$("#comp").hide();
 	$("#open_sell").click( function(event) {
 		$("#vehicle_form").slideToggle(500);
 	});
@@ -19,7 +25,20 @@ $(document).ready( function() {
 	$("#micc").hover( function(event) {
 		$("#m_pic").fadeIn(2000);
 	});
+	$("#picture").click( function(event) {
+		$("#account_name").slideToggle(500);
+		$("#account_email").slideToggle(500);
+		
+		$("#account_cars").slideToggle(500);
+	});
+	$("#slide_title").click( function(event) {
+		$("#slide").slideToggle(500);
+	});
 	
 	
+	
+	
+	
+
 });
 

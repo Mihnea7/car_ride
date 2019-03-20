@@ -6,15 +6,16 @@
 
 
 	<div class="details" style="text-align:center;">
+	<h2>Click on the Picture to Reveal User Details</h2>
 	{% if picture %}
-		<h3><img src="{{ MEDIA_URL }}{{ picture }}" alt="profilepic" height="100" /></h3>
+		<h3><img id = "picture" src="{{ MEDIA_URL }}{{ picture }}" alt="profilepic" height="100" /></h3>
 	{% endif %}
 	{% if default %}
-		<h2><img src="{% static "images/default.jpeg" %}" alt="defaultpic" height="100" /></h2>
+		<h2><img id ="picture" src="{% static "images/default.jpeg" %}" alt="defaultpic" height="100" /></h2>
 	{% endif %}
-		<h3>Username: {{ user.username }}</h3>
-		<h3>Email ID: {{ user.email }}</h3>
-		<h2><u> My posts </u></h2>
+		<h3 id = "account_name">Username: {{ user.username }}</h3>
+		<h3 id="account_email">Email ID: {{ user.email }}</h3>
+		<h2 id ="account_posts"><u> My posts </u></h2>
 			<div class = "posts">
 				{% for car in posts %}
 				<a href="/carride/cardetails/{{car.slug}}/" style='text-decoration:none'>{{car.make}} {{car.model}} {{car.year}} {{car.numplate}}</a>
