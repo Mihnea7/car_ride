@@ -21,7 +21,7 @@ class Vehicle(models.Model):
 	ID = models.AutoField(primary_key= True, unique= True)
 	make = models.CharField(max_length = 256)
 	price = models.DecimalField(decimal_places = 1, max_digits = 10, null=True)
-	year = models.IntegerField(null=True)
+	year = models.IntegerField(validators=[MinValueValidator(1900),MaxValueValidator(2019)], null=True)
 	new = models.BooleanField(default=True)
 	username = models.CharField(max_length = 20, blank=True)
 	phoneNum = models.CharField(max_length = 13, blank=True)

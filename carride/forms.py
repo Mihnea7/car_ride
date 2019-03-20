@@ -31,7 +31,11 @@ class VehicleForm(forms.ModelForm):
                             help_text='Car Model')
     price = forms.DecimalField(decimal_places = 1, max_digits = 10, 
     	                       help_text='Car Price')
+
     year = forms.IntegerField(help_text='Car Year')
+
+    year = forms.IntegerField( help_text='Car year')
+
     new = forms.BooleanField(help_text='Is the Car New?', required=False)
     phoneNum = forms.CharField(help_text='Your Phone Number',
                                max_length = 13)
@@ -39,9 +43,8 @@ class VehicleForm(forms.ModelForm):
     additionalInfo = forms.CharField(help_text='Additional Information',
                                      max_length = 1024)
     forSale=forms.BooleanField(help_text='Tick if not for Lease', required=False)
-    username = forms.CharField(help_text='Please enter your full name')
+    username = forms.CharField(widget=forms.HiddenInput(), required=False)
     slug=forms.CharField(widget=forms.HiddenInput(), required=False)
-
     
     class Meta:
         model = Vehicle

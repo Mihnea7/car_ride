@@ -2,6 +2,7 @@
 {% load staticfiles %}
 
 {% block body_block %}
+<div class="content">
 	<head>
 		<link rel="stylesheet" type="text/css" href="{% static "style/cardetails.css" %}"/>
 	</head>
@@ -55,10 +56,9 @@
 					<h3>You have to be signed in to leave a review</h3>
 				{% endif %}
 			</form>
-		</div><br>
+		<br>
 		
-		<div class="review2">
-			<h3><u>Previous reviews: </u></h3>
+			<h3><u>Recent reviews: </u></h3>
 			<div class="comments">
 			<span class="all_reviews">
 				{% if all_reviews %}
@@ -69,5 +69,5 @@
 			</span>
 			</div>
 		</div>
-
+</div>
 {% endblock %}
