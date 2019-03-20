@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{% static "style/home.css" %}"/>
 
 	<div class = "codesc" style="text-align:center;">
-		<h1 > Why choose CarRide? </h1>
+		<h1 > <u>Why choose CarRide? </u></h1>
 		<h3>CarRide is a trusted marketplace for consumers, retailers and manufacturers worldwide. <br>
 		Sell, Lease, Buy, Rent and Compare different cars with ease through CarRide.</h3>	
 	</div>
@@ -14,7 +14,7 @@
 	<hr>
 	
 	
-	<h1 id = "slide_title"style="text-align:center;"> <u>Click for our Top Rated Cars </u> </h1>	
+	<h1 id = "slide_title"style="text-align:center;"> <u>Click for Top Rated Cars </u> </h1>	
 	
 	<div id= "slide" class="slideshow-container">
 	{% for car in top_cars %} 
@@ -26,6 +26,27 @@
 
 	</div>
 	
+	<hr>
+	
+	<div class="codesc2" style="text-align:center;">
+	<form method="post" action="{% url 'search' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+		<h1 ><u>Search by Make</u><br></h1>
+		<h4 >CASE SENSITIVE</h4><br>
+			<div align="center"><font size="4">
+			{% for field in form.visible_fields %}<br><br>
+				{{ field.errors }}
+				{{ field.help_text }}
+				{{ field }}
+			{% endfor %}
+			</font>
+			
+			<input type="text" name="make" value="">
+			<input type="submit" name="submit" value="Search" />
+			</div>
+	</form>
+	<br>
+	</div>
 	<hr>
 		
 		<script>

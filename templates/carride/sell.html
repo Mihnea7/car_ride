@@ -1,15 +1,13 @@
 {% extends 'carride/base.html' %}
 {% load staticfiles %}
 
-
-
 {% block body_block %}
 <link rel="stylesheet" type="text/css" href="{% static "style/sell.css" %}"/>
 	
 	{% if user.is_authenticated %}
 	
 		<div class='reg' id="sell" style="text-align:center;">
-			<h2 id='open_sell'>Click to enter Car Details</h2>
+			<h2 id='open_sell'><u>Click to enter Car Details</u></h2>
 			<form id="vehicle_form" method="post" action="{% url 'sell' %}" enctype="multipart/form-data">
 				{% csrf_token %}
 

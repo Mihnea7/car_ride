@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from carride.forms import UserForm, UserProfileForm, ReviewForm, VehicleForm, CompareForm
+from carride.forms import UserForm, UserProfileForm, ReviewForm, VehicleForm, CompareForm, SearchForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -231,4 +231,31 @@ def rent(request):
     car_page=paginator.page(page)
     context_dict ={'car_list':car_page}
     response = render(request, 'carride/rent.html', context=context_dict)
+    return response
+
+def search(request):
+    context_dict ={}
+
+    form = SearchForm()
+
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+
+            form.save(commit = False)
+
+            try:
+                cars = Vehicle.objects.filter(make=form.cleaned_data['make'])
+                context_dict['car_list'] = cars
+            except Vehicle.DoesNotExist:
+                context_dict['car_list'] = None
+
+        else:
+
+            print(form.errors)
+            print('This make does not exist')
+
+    context_dict['form'] = form
+
+    response = render(request, 'carride/search.html', context_dict)
     return response

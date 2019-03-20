@@ -6,7 +6,7 @@
 
 
 	<div class="details" style="text-align:center;">
-	<h2>Click on the Picture to Reveal User Details</h2>
+	<h2>Click on the Picture for User Details</h2>
 	{% if picture %}
 		<h3><img id = "picture" src="{{ MEDIA_URL }}{{ picture }}" alt="profilepic" height="100" /></h3>
 	{% endif %}
@@ -27,7 +27,7 @@
 	
 	<br>
 	<div style="text-align:center;"><font size="4">
-	<button type='delete' onclick="window.location.href = '{% url 'delete_account' %}';"> Delete Account </bottom>
+	<button type='delete' onclick="window.location.href = '{% url 'delete_account' %}';"> Delete Account </button>
 	</font></div>
 	<br>
 {% endblock %}

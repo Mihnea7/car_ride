@@ -55,3 +55,11 @@ class CompareForm(forms.ModelForm):
     class Meta:
         model = Vehicle
         fields = ('ID',)
+
+class SearchForm(forms.ModelForm):
+    
+    make = forms.CharField(max_length=256, help_text="Car Make", required=True)
+
+    class Meta:
+        model=Vehicle
+        fields = ('make',)
