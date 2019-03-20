@@ -28,15 +28,15 @@ class ReviewForm(forms.ModelForm):
 class VehicleForm(forms.ModelForm):
     make = forms.CharField(max_length=256, help_text="Car Make")
     model = forms.CharField(max_length = 256,
-                            help_text='Car model')
+                            help_text='Car Model')
     price = forms.DecimalField(decimal_places = 1, max_digits = 10, 
     	                       help_text='Car Price')
-    year = forms.IntegerField(help_text='Car year')
+    year = forms.IntegerField(help_text='Car Year')
     new = forms.BooleanField(help_text='Is the Car New?', required=False)
     phoneNum = forms.CharField(help_text='Your Phone Number',
                                max_length = 13)
     picture = forms.ImageField(help_text='Add Picture of Car',required=True)
-    additionalInfo = forms.CharField(help_text='Additional information',
+    additionalInfo = forms.CharField(help_text='Additional Information',
                                      max_length = 1024)
     forSale=forms.BooleanField(help_text='Tick if not for Lease', required=False)
     username = forms.CharField(help_text='Please enter your full name')
