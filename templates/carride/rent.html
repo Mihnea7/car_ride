@@ -1,31 +1,38 @@
 {% extends 'carride/base.html' %}
 {% load staticfiles %}
+{% load my_tags %}
 
 {% block body_block %}
 
-	<hr>
 	<link rel="stylesheet" type="text/css" href="{% static "style/buyrent.css" %}"/>
+	<th><a href="{% url 'rent' %}?sort=price-hl">Price: high to low </a></th><br>
+	<th><a href="{% url 'rent' %}?sort=price-lh">Price: low to high </a></th><br>
+	<th><a href="{% url 'rent' %}?sort=id-lh">Oldest uploaded first </a></th><br>
+	<th><a href="{% url 'rent' %}?sort=id-hl">Newest uploaded first </a></th><br>
+	<hr>
 
 	{% if car_list %}
 	
 		{% for car in car_list %}
+
 		<div class='postbox'>
 			<a href="/carride/cardetails/{{car.slug}}/"><img src="{{ MEDIA_URL }}{{ car.picture }}" alt="CAR" height="220"/></a>
 		</div>				
-		
-					<div class='bigbox'	>	
-						<div class='desc'>
-							<h2 style="text-align:center;"><u> Description </u></h2>
-							<p> <b>Make:</b> {{ car.make }} <br><b>Model:</b> {{ car.model }} <br> 
-							<b>Year:</b> {{ car.year }} <br> <b>Price:</b> £ {{ car.price }} <br> <b> ID: </b> {{car.ID}} </p>
-						</div>
-						<a href="/carride/cardetails/{{car.slug}}/"><div class="findmore"> FIND OUT MORE </div></a>
-						<div class = "rating">
-							<b>RATING: </b> {{ car.rating }}
-						</div>
-					</div>	
-			<br><br>	
+				<div class='bigbox'>	
+					<div class='desc'>
+						<h2 style="text-align:center;"><u> Description </u></h2>
+						<p> <b>Make:</b> {{ car.make }} <br><b>Model:</b> {{ car.model }} <br> 
+						<b>Year:</b> {{ car.year }} <br> <b>Price:</b> £ {{ car.price }} <br> <b> ID: </b> {{car.ID}} </p>
+					</div>
+					<a href="/carride/cardetails/{{car.slug}}/"><div class="findmore"> FIND OUT MORE </div></a>
+					<div class = "rating">
+						<b>RATING: </b> {{ car.rating }}
+					</div>
+				</div>	
+			<br><br>
+
 			<hr>
+
 		{% endfor %}
 
 	{% else %}
@@ -35,8 +42,8 @@
 	<div class="pagination" style="text-align:center;">
 	    <span class="step-links">
 	        {% if car_list.has_previous %}
-	            <a href="?page=1">&laquo; First</a>
-	            <a href="?page={{ car_list.previous_page_number }}">Previous</a>
+	            <a href="?{% param_replace %}&page=1">&laquo; First</a>
+	            <a href="?{% param_replace %}&page={{ car_list.previous_page_number }}">Previous</a>
 	        {% endif %}
 
 	        <span class="current">
@@ -44,8 +51,8 @@
 	        </span>
 
 	        {% if car_list.has_next %}
-	            <a href="?page={{ car_list.next_page_number }}">Next</a>
-	            <a href="?page={{ car_list.paginator.num_pages }}">Last &raquo;</a>
+	            <a href="?{% param_replace %}&page={{ car_list.next_page_number }}">Next</a>
+	            <a href="?{% param_replace %}&page=paginator.num_pages">Last &raquo;</a>
 	        {% endif %}
 	    </span>
 	</div>

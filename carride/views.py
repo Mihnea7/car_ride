@@ -214,22 +214,46 @@ def sell(request):
     return response
 
 def buy(request):
-
-    car_list = Vehicle.objects.filter(forSale=True)
-    paginator = Paginator(car_list, 2)
-    page=request.GET.get('page',1)
-    car_page=paginator.page(page)
-    context_dict ={'car_list':car_page}    
-    response = render(request, 'carride/buy.html', context=context_dict)
-    return response
-
-def rent(request):
+    context_dict={}
+    sort = request.GET.get('sort', 'ID')
+    if sort == "price-hl":
+        car_list = Vehicle.objects.filter(forSale=True).order_by('-price')
+    elif sort == "price-lh":
+        car_list = Vehicle.objects.filter(forSale=True).order_by('price')
+    elif sort == "id-hl":
+        car_list = Vehicle.objects.filter(forSale=True).order_by('-ID')
+    elif sort == "id-lh":
+        car_list = Vehicle.objects.filter(forSale=True).order_by('ID')
+    else:
+        car_list = Vehicle.objects.filter(forSale=True).order_by(sort)
     
-    car_list = Vehicle.objects.filter(forSale=False)
     paginator = Paginator(car_list, 2)
     page=request.GET.get('page',1)
     car_page=paginator.page(page)
     context_dict ={'car_list':car_page}
+    context_dict['sort_by'] = sort
+    response = render(request, 'carride/buy.html', context=context_dict)
+    return response
+
+def rent(request):
+    context_dict={}
+    sort = request.GET.get('sort', 'ID')
+    if sort == "price-hl":
+        car_list = Vehicle.objects.filter(forSale=False).order_by('-price')
+    elif sort == "price-lh":
+        car_list = Vehicle.objects.filter(forSale=False).order_by('price')
+    elif sort == "id-hl":
+        car_list = Vehicle.objects.filter(forSale=False).order_by('-ID')
+    elif sort == "id-lh":
+        car_list = Vehicle.objects.filter(forSale=False).order_by('ID')
+    else:
+        car_list = Vehicle.objects.filter(forSale=False).order_by(sort)
+    
+    paginator = Paginator(car_list, 2)
+    page=request.GET.get('page',1)
+    car_page=paginator.page(page)
+    context_dict ={'car_list':car_page}
+    context_dict['sort_by'] = sort
     response = render(request, 'carride/rent.html', context=context_dict)
     return response
 
