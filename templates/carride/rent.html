@@ -52,7 +52,7 @@
 
 	        {% if car_list.has_next %}
 	            <a href="?{% param_replace %}&page={{ car_list.next_page_number }}">Next</a>
-	            <a href="?{% param_replace %}&page=paginator.num_pages">Last &raquo;</a>
+	            <a href="?{% param_replace %}&page={{ car_list.paginator.num_pages }}">Last &raquo;</a>
 	        {% endif %}
 	    </span>
 	</div>
