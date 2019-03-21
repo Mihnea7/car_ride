@@ -229,7 +229,7 @@ def buy(request):
     else:
         car_list = Vehicle.objects.filter(forSale=True).order_by(sort)
     
-    paginator = Paginator(car_list, 2)
+    paginator = Paginator(car_list, 10)
     page=request.GET.get('page',1)
     car_page=paginator.page(page)
     context_dict ={'car_list':car_page}
@@ -253,7 +253,7 @@ def rent(request):
     else:
         car_list = Vehicle.objects.filter(forSale=False).order_by(sort)
     
-    paginator = Paginator(car_list, 2)
+    paginator = Paginator(car_list, 10)
     page=request.GET.get('page',1)
     car_page=paginator.page(page)
     context_dict ={'car_list':car_page}

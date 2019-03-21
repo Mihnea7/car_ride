@@ -30,13 +30,13 @@ class VehicleMethodTests(TestCase):
 		slug_line_creation checks to make sure that when we add a Vehicle
 		an appropriate slug line is created
 		'''
-		car = Vehicle(make='Volkswagen', model='Golf',
-					  numplate='BD51SMR', price=1000,
+		car = Vehicle(make='Ford', model='Fiesta',
+					  numplate='HU51PEK', price=1000,
 					  year=2020, new=False, phoneNum='07928962185',
 					  picture=ImageFile(open('media\\Porsche-Macan-02.jpg', 'rb')),
 					  additionalInfo='blue colour', forSale=True)
 		car.save()
-		self.assertEqual(car.slug, 'volkswagen-golf-bd51smr')
+		self.assertEqual(car.slug, 'volkswagen-golf-HU51PEK')
 
 class ShowCarDetailsViewTests(TestCase):
 	#p214 of Django tutorial

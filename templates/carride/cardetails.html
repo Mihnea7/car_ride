@@ -18,7 +18,11 @@
 			<h3>Make: {{chosen_car.make}}</h3>
 			<h3>Model: {{ chosen_car.model }}</h3>
 			<h3>Number Plate: {{chosen_car.numplate}}</h3>
-			<h3>Price: {{ chosen_car.price }}</h3>
+			{% if chosen_car.forSale %} 
+				<h3>Price: £ {{ chosen_car.price }}</h3>
+			{% else %}
+				<h3>Price per day: £ {{ chosen_car.price }}</h3>
+			{% endif %}
 			<h3>Year: {{ chosen_car.year }}</h3>
 			{% if chosen_car.new %}
 				<h3>New/old: New</h3>

@@ -17,6 +17,11 @@ hr {
   position: relative;
 }
 
+img{
+  max-height: 300px;
+  max-width: 600px;
+}
+
 .desc{
   border-radius:20px;
   width: 250px;

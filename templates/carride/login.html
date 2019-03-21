@@ -19,7 +19,8 @@
 </form>
 
 <p><strong> -------OR------- </strong></p>
-<a href = "{%url 'social:begin' 'google-oauth2' %}" class = "goog-btn"> <h2> Login with Google </h2> </a>
+<a href = "{%url 'social:begin' 'google-oauth2' %}" class = "goog-btn"> <h2> Login with <div style="height:10px"><br></div>
+<img src="{% static "images/google.jpeg" %}" id='g_pic' alt="google" width="25" height="25"/> </h2>  </a>
 
 </div>
 {% endblock %}

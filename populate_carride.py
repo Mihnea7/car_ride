@@ -18,20 +18,20 @@ def populate():
 
 	{"make":"Tesla",
      "model": "Model S", "forSale": False, "numplate": "xyyy",
-	 "price": 73500, "year": 2016, "new": True, "username": "Deni Nedjalkova", 
+	 "price": 73, "year": 2016, "new": True, "username": "Shourya Verma", 
 	 "phoneNum": "+447928962185", "additionalInfo": "silver colour",
 	 "picture": ImageFile(open('media\\tesla-s.jpg', 'rb')), },
 
     {"make":"Ford",
      "model": "Fiesta", "forSale": True, "numplate": "xxxz",
-	 "price": 2300, "year": 2009, "new": False, "username": "Deni Nedjalkova", 
-	 "phoneNum": "+447928962187", "additionalInfo": "dark blue colour",
+	 "price": 2300, "year": 2009, "new": False, "username": "Mihnea Maldaianu", 
+	 "phoneNum": "+447928962333", "additionalInfo": "dark blue colour",
 	 "picture": ImageFile(open('media\\Ford_Fiesta_2009.jpg', 'rb')), },
 
     {"make":"Volvo",
      "model": "740 Turbo", "forSale": True, "numplate": "xwxx",
-	 "price": 10000, "year": 1985, "new": False, "username": "Deni Nedjalkova", 
-	 "phoneNum": "+447928962187", "additionalInfo": "silver colour",
+	 "price": 10000, "year": 1985, "new": False, "username": "Alexander Cowan", 
+	 "phoneNum": "+447333462187", "additionalInfo": "silver colour",
 	 "picture": ImageFile(open('media\\volvo_740_1985_turbo.jpg', 'rb')), },
 	]
 

@@ -20,7 +20,7 @@ class Vehicle(models.Model):
 	model = models.CharField(max_length = 256)
 	ID = models.AutoField(primary_key= True)
 	make = models.CharField(max_length = 256)
-	price = models.DecimalField(decimal_places = 1, max_digits = 10, null=True)
+	price = models.DecimalField(validators=[MinValueValidator(0)], decimal_places = 1, max_digits = 10, null=True)
 	year = models.IntegerField(validators=[MinValueValidator(1900),MaxValueValidator(2019)], null=True)
 	new = models.BooleanField(default=True)
 	username = models.CharField(max_length = 20, blank=True)

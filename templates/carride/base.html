@@ -21,14 +21,14 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js">
 
 	<body>
 		<div class="topnav">
-			<span><a href="{% url 'home' %}"><img src="{% static "images/car ride.png" %}" alt="CarRide" width="230" height="100" /></a></span>
-			<span id="moto"> <h4> WANT TO ESCAPE THE REALITY? <br /> GET A CAR AND DRIVE AWAY! </h4> </span>
+			<span><a href="{% url 'home' %}"><img src="{% static "images/car ride.png" %}" alt="CarRide" width="215" height="100" /></a></span>
+			<span id="moto" style="text-align:center;"> <h4> WANT TO ESCAPE THE REALITY? <br /> GET A CAR AND DRIVE AWAY! </h4> </span>
 				<ul id="authentication">
 					{% if user.is_authenticated %}
-						<li><a href="{% url 'logout' %}" class="log-btn">Logout</a></li>
+						<li><a href="{% url 'logout' %}" class="log-btn">Logout</a></li><div style="height:3px"><br></div>
 						<li><a href="{% url 'myaccount' %}"class="log-btn">My Account</a></li>
 					{% else %}
-						<li><a href="{% url 'login' %}"class="log-btn">Sign In</a></li>
+						<li><a href="{% url 'login' %}"class="log-btn">Sign In</a></li><div style="height:3px"><br></div>
 						<li><a href="{% url 'register' %}"class="log-btn">Sign Up</a></li>
 					{% endif %}
 				</ul>

@@ -30,7 +30,7 @@ class VehicleForm(forms.ModelForm):
     model = forms.CharField(max_length = 256, help_text='Car model', required=True)
     numplate = forms.CharField(max_length = 10, help_text="Car Number Plate", required=True)
     price = forms.DecimalField(decimal_places = 1, max_digits = 10, 
-    	                       help_text='Car Price', required=True)
+    	                       help_text='Car Price (per day if for lease)', required=True)
     year = forms.IntegerField( help_text='Car year', required=True)
     new = forms.BooleanField(help_text='Is the Car New?', required=False)
     phoneNum = forms.CharField(help_text='Your Phone Number',
