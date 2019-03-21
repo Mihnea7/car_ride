@@ -3,7 +3,7 @@
 {% load my_tags %}
 
 {% block body_block %}
-
+	<hr>
 	<link rel="stylesheet" type="text/css" href="{% static "style/buyrent.css" %}"/>
 	<div class="dropdown">
 		<button class="dropbtn">Sort by:</button>
@@ -47,8 +47,8 @@
 	<div class="pagination" style="text-align:center;">
 	    <span class="step-links">
 	        {% if car_list.has_previous %}
-	            <a href="?{% param_replace %}&page=1">&laquo; First</a>
-	            <a href="?{% param_replace %}&page={{ car_list.previous_page_number }}">Previous</a>
+	            <a href="?{% param_replace %}&page=1" class="log-btn">&laquo; First</a>
+	            <a href="?{% param_replace %}&page={{ car_list.previous_page_number }}"class="log-btn">Previous</a>
 	        {% endif %}
 
 	        <span class="current">
@@ -56,8 +56,8 @@
 	        </span>
 
 	        {% if car_list.has_next %}
-	            <a href="?{% param_replace %}&page={{ car_list.next_page_number }}">Next</a>
-	            <a href="?{% param_replace %}&page={{ car_list.paginator.num_pages }}">Last &raquo;</a>
+	            <a href="?{% param_replace %}&page={{ car_list.next_page_number }}"class="log-btn">Next</a>
+	            <a href="?{% param_replace %}&page={{ car_list.paginator.num_pages }}"class="log-btn">Last &raquo;</a>
 	        {% endif %}
 	    </span>
 	</div>
