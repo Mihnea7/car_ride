@@ -234,6 +234,7 @@ def buy(request):
     car_page=paginator.page(page)
     context_dict ={'car_list':car_page}
     context_dict['sort_by'] = sort
+    context_dict['buy_cars'] = car_list
     response = render(request, 'carride/buy.html', context=context_dict)
     return response
 
@@ -266,6 +267,8 @@ def search(request):
 
     form = SearchForm()
 
+    context_dict['car_list'] = []
+
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
@@ -276,7 +279,7 @@ def search(request):
                 cars = Vehicle.objects.filter(make=form.cleaned_data['make'])
                 context_dict['car_list'] = cars
             except Vehicle.DoesNotExist:
-                context_dict['car_list'] = None
+                context_dict['car_list'] = []
 
         else:
 
@@ -285,5 +288,5 @@ def search(request):
 
     context_dict['form'] = form
 
-    response = render(request, 'carride/search.html', context_dict)
+    response = render(request, 'carride/search.html', context=context_dict)
     return response
