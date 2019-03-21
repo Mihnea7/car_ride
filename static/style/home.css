@@ -6,7 +6,9 @@
   margin: auto;
   padding: 10px;
 }
-
+.top{
+	text-align:centre;
+}
 .codesc2{
   border-radius:20px;
   width:400px;

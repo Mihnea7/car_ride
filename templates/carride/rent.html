@@ -5,12 +5,17 @@
 {% block body_block %}
 
 	<link rel="stylesheet" type="text/css" href="{% static "style/buyrent.css" %}"/>
-	<th><a href="{% url 'rent' %}?sort=price-hl">Price: high to low </a></th><br>
-	<th><a href="{% url 'rent' %}?sort=price-lh">Price: low to high </a></th><br>
-	<th><a href="{% url 'rent' %}?sort=id-lh">Oldest uploaded first </a></th><br>
-	<th><a href="{% url 'rent' %}?sort=id-hl">Newest uploaded first </a></th><br>
+	<div class="dropdown">
+		<button class="dropbtn">Sort by:</button>
+		<div class="dropdown-content">
+		<a href="{% url 'buy' %}?sort=price-hl">Price: High to Low </a>
+		<a href="{% url 'buy' %}?sort=price-lh">Price: Low to High </a>
+		<a href="{% url 'buy' %}?sort=id-lh">Oldest Uploaded First </a>
+		<a href="{% url 'buy' %}?sort=id-hl">Newest Uploaded First </a>
+	</div>
+	</div>
 	<hr>
-
+	
 	{% if car_list %}
 	
 		{% for car in car_list %}

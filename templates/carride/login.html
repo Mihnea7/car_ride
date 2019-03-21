@@ -15,11 +15,11 @@
 		<br><br>
 		Password: <input type="password" name="password" value="" size="50" />
 		<br><br>
-		<input type="submit" value="submit" />		
+		<input type="submit" value="SUBMIT" class="log-btn" />		
 </form>
 
 <p><strong> -------OR------- </strong></p>
-<a href = "{%url 'social:begin' 'google-oauth2' %}"> <h2> Login with Google </h2> </a>
+<a href = "{%url 'social:begin' 'google-oauth2' %}" class = "goog-btn"> <h2> Login with Google </h2> </a>
 
 </div>
 {% endblock %}
