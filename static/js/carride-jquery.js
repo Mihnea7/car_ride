@@ -7,9 +7,8 @@ $(document).ready( function() {
 	$("#slide").hide();
 	$("#account_email").hide();
 	$("#account_name").hide();
+	$("#reviews").hide();
 	
-	$("#account_cars").hide();
-	$("#comp").hide();
 	$("#open_sell").click( function(event) {
 		$("#vehicle_form").slideToggle(500);
 	});
@@ -34,11 +33,9 @@ $(document).ready( function() {
 	$("#slide_title").click( function(event) {
 		$("#slide").slideToggle(500);
 	});
-	
-	
-	
-	
-	
+	$("#open_reviews").click( function(event) {
+		$("#reviews").slideToggle(500);
+	});
 
 });
 

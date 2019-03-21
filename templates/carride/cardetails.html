@@ -60,9 +60,9 @@
 			</form>
 		<br>
 		
-			<h3><u>Recent reviews: </u></h3>
+			<h3 id = "open_reviews"><u>Click for Recent Reviews </u></h3>
 			<div class="comments">
-			<span class="all_reviews">
+			<span id = "reviews" class="all_reviews">
 				{% if all_reviews %}
 					{% for comment in all_reviews %}
 						<h4>{{ comment.user }} rated it {{comment.rating}} says: {{ comment.review }}</h4>
