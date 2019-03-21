@@ -7,12 +7,17 @@
 
 	<div class="details" style="text-align:center;">
 	<h2>Click on the Picture for User Details</h2>
+	
+	
 	{% if picture %}
 		<h3><img id = "picture" src="{{ MEDIA_URL }}{{ picture }}" alt="profilepic" height="100" /></h3>
 	{% endif %}
+	
 	{% if default %}
 		<h2><img id ="picture" src="{% static "images/default.jpeg" %}" alt="defaultpic" height="100" /></h2>
 	{% endif %}
+	
+	
 		<h3 id = "account_name">Username: {{ user.username }}</h3>
 		<h3 id="account_email">Email ID: {{ user.email }}</h3>
 		<h2 id ="account_posts"><u> My posts </u></h2>
