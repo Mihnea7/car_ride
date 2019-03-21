@@ -3,7 +3,7 @@
 
 {% block body_block %}
 <link rel="stylesheet" type="text/css" href="{% static "style/sell.css" %}"/>
-	
+			<hr>
 	{% if user.is_authenticated %}
 	
 		<div class='reg' id="sell" style="text-align:center;">
@@ -27,13 +27,7 @@
 		<h2 style="text-align:center;"> You need to be logged in to sell a car </h2>	
 	{% endif %}
 	
+			<hr>
 	
-	
-	<!--<script>
-	function sell() {
-		alert("Your car has been posted!")
-		location.replace('{% url 'home' %}')
-	}
-	</script>-->
 		
 {% endblock %}

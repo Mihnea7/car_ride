@@ -224,6 +224,8 @@ def buy(request):
         car_list = Vehicle.objects.filter(forSale=True).order_by('-ID')
     elif sort == "id-lh":
         car_list = Vehicle.objects.filter(forSale=True).order_by('ID')
+    elif sort == "rating":
+        car_list = Vehicle.objects.filter(forSale=True).order_by('-rating')    
     else:
         car_list = Vehicle.objects.filter(forSale=True).order_by(sort)
     
@@ -246,6 +248,8 @@ def rent(request):
         car_list = Vehicle.objects.filter(forSale=False).order_by('-ID')
     elif sort == "id-lh":
         car_list = Vehicle.objects.filter(forSale=False).order_by('ID')
+    elif sort == "rating":
+        car_list = Vehicle.objects.filter(forSale=False).order_by('-rating') 
     else:
         car_list = Vehicle.objects.filter(forSale=False).order_by(sort)
     

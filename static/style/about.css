@@ -5,6 +5,15 @@
   padding: 60px;
 }
 
+.text{
+  border-radius:20px;
+  width:800px;
+  border: 5px solid #659DBD;
+  background-color: #C4D1E3;
+  margin: auto;
+  padding: 10px;
+}
+
 .row {
   float: right;
   display:inline-blocks;

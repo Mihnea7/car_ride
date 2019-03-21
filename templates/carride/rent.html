@@ -8,10 +8,11 @@
 	<div class="dropdown">
 		<button class="dropbtn">Sort by:</button>
 		<div class="dropdown-content">
-		<a href="{% url 'buy' %}?sort=price-hl">Price: High to Low </a>
-		<a href="{% url 'buy' %}?sort=price-lh">Price: Low to High </a>
-		<a href="{% url 'buy' %}?sort=id-lh">Oldest Uploaded First </a>
-		<a href="{% url 'buy' %}?sort=id-hl">Newest Uploaded First </a>
+		<a href="{% url 'rent' %}?sort=price-hl">Price: High to Low </a>
+		<a href="{% url 'rent' %}?sort=price-lh">Price: Low to High </a>
+		<a href="{% url 'rent' %}?sort=id-lh">Oldest Uploaded First </a>
+		<a href="{% url 'rent' %}?sort=id-hl">Newest Uploaded First </a>
+		<a href="{% url 'rent' %}?sort=rating">Rating</a>	
 	</div>
 	</div>
 	<hr>

@@ -13,17 +13,11 @@
 		<a href="{% url 'buy' %}?sort=price-lh">Price: Low to High </a>
 		<a href="{% url 'buy' %}?sort=id-lh">Oldest Uploaded First </a>
 		<a href="{% url 'buy' %}?sort=id-hl">Newest Uploaded First </a>
+		<a href="{% url 'buy' %}?sort=rating">Rating</a>	
 	</div>
 	</div>
 	<hr>
 	
-	
-	
-	
-	
-	
-	
-
 	{% if car_list %}
 
 		{% for car in car_list %}
