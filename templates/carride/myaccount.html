@@ -10,11 +10,13 @@
 	
 	
 	{% if picture %}
-		<h3><img id = "picture" src="{{ MEDIA_URL }}{{ picture }}" alt="profilepic" height="100" /></h3>
-	{% endif %}
+		<h3><img id = "picture" src="{{ MEDIA_URL }}{{ picture }}" alt="Picture" height="100" /></h3>
+	{% else %}
 	
-	{% if default %}
-		<h2><img id ="picture" src="{% static "images/default.jpeg" %}" alt="defaultpic" height="100" /></h2>
+		{% if default %}
+			<h2><img id ="picture" src="{% static "images/default.jpeg" %}" alt="defaultpic" height="100" /></h2>
+		{% endif %}
+		
 	{% endif %}
 	
 	
